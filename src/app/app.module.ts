@@ -7,6 +7,8 @@ import { HomeComponent } from './component/home/home.component';
 import { HeaderComponent } from './shared-Component/header/header.component';
 import { FooterComponent } from './shared-Component/footer/footer.component';
 import { AboutComponent } from './component/about/about.component';
+import { ContectComponent } from './component/contect/contect.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +17,14 @@ import { AboutComponent } from './component/about/about.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    ContectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
