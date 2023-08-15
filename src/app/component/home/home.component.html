@@ -1,0 +1,383 @@
+<div id="wrapper">
+  <app-header></app-header>
+  <!-- content-->
+  <div class="content">
+    <!--section -->
+    <section class="hero-section" data-scrollax-parent="true" id="sec1">
+      <div class="hero-parallax">
+        <div
+          class="bg"
+          data-bg="assets/images/bg/22.jpg"
+          data-scrollax="properties: { translateY: '200px' }"
+          style="
+            background-image: url('assets/images/bg/22.jpg');
+            transform: translateZ(0px) translateY(-92.437px);
+          "
+        ></div>
+        <div class="overlay op7"></div>
+      </div>
+      <div class="hero-section-wrap fl-wrap">
+        <div class="container">
+          <div class="home-intro">
+            <div class="section-title-separator">
+              <span
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i
+              ></span>
+            </div>
+            <h2>House Hunt Flat Booking System</h2>
+            <span class="section-separator"></span>
+            <h3>Let's start exploring the world together with house hunt</h3>
+          </div>
+
+          <!-- search code start -->
+
+          <div class="main-search-input-wrap">
+            <div class="main-search-input fl-wrap">
+              <div
+                class="main-search-input-item location"
+                id="autocomplete-container"
+              >
+                <span class="inpt_dec"><i class="fal fa-map-marker"></i></span>
+                <input
+                  type="text"
+                  placeholder="Flat , City..."
+                  class="autocomplete-input pac-target-input"
+                  id="autocompleteid2"
+                  autocomplete="off"
+                />
+                <!-- <a href="#"><i class="fal fa-dot-circle"></i></a> -->
+              </div>
+              <div
+                class="main-search-input-item main-date-parent main-search-input-item_small"
+              >
+                <span class="inpt_dec"
+                  ><i class="fal fa-calendar-check"></i
+                ></span>
+                <input
+                  type="text"
+                  placeholder="When"
+                  name="main-input-search"
+                  value=""
+                />
+                <div class="daterangepicker ltr show-calendar opensright">
+                  <div class="ranges"></div>
+                  <div class="drp-calendar left">
+                    <div class="calendar-table"></div>
+                    <div class="calendar-time" style="display: none"></div>
+                  </div>
+                  <div class="drp-calendar right">
+                    <div class="calendar-table"></div>
+                    <div class="calendar-time" style="display: none"></div>
+                  </div>
+                  <div class="drp-buttons">
+                    <span class="drp-selected"></span
+                    ><button
+                      class="cancelBtn btn btn-sm btn-default"
+                      type="button"
+                    >
+                      Clear</button
+                    ><button
+                      class="applyBtn btn btn-sm btn-primary"
+                      disabled="disabled"
+                      type="button"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="main-search-input-item">
+                <div class="qty-dropdown fl-wrap">
+                  <div class="qty-dropdown-header fl-wrap">
+                    <i class="fal fa-users"></i> Persons
+                  </div>
+                  <div class="qty-dropdown-content fl-wrap">
+                    <div class="quantity-item">
+                      <label><i class="fas fa-male"></i> Adults</label>
+                      <div class="quantity">
+                        <input
+                          type="number"
+                          min="1"
+                          max="3"
+                          step="1"
+                          value="1"
+                        />
+                        <div class="quantity-nav">
+                          <div class="quantity-button quantity-up">+</div>
+                          <div class="quantity-button quantity-down">-</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="quantity-item">
+                      <label><i class="fas fa-child"></i> Children</label>
+                      <div class="quantity">
+                        <input
+                          type="number"
+                          min="0"
+                          max="3"
+                          step="1"
+                          value="0"
+                        />
+                        <div class="quantity-nav">
+                          <div class="quantity-button quantity-up">+</div>
+                          <div class="quantity-button quantity-down">-</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="main-search-button color2-bg"
+                onclick="window.location.href='listing.html'"
+              >
+                Search <i class="fal fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Search code end -->
+        </div>
+      </div>
+      <div class="header-sec-link">
+        <div class="container">
+          <a class="custom-scroll-link color-bg"
+            ><i class="fal fa-angle-double-down"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+    <!-- section end -->
+
+    <!-- section-->
+    <section class="grey-blue-bg">
+      <!-- container-->
+      <div class="container">
+        <div class="section-title">
+          <div class="section-title-separator">
+            <span
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+            ></span>
+          </div>
+          <h2>Recently Added Flats</h2>
+          <span class="section-separator"></span>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in
+            pulvinar neque. Nulla finibus lobortis pulvinar.
+          </p>
+        </div>
+      </div>
+      <!-- container end-->
+      <!-- carousel -->
+      <div class="list-carousel fl-wrap card-listing">
+        <!--listing-carousel-->
+        <div
+          class="listing-carousel fl-wrap slick-initialized slick-slider slick-dotted"
+        >
+          <div class="slick-list draggable">
+            <div class="slick-track">
+              <div
+                class="slick-slide"
+                id=""
+                aria-hidden="true"
+                style="width: 335px"
+              >
+                <div>
+                  <div
+                    class="slick-slide-item"
+                    style="width: 100%; display: inline-block"
+                  >
+                    <!-- listing-item  -->
+                    <div class="listing-item">
+                      <article class="geodir-category-listing fl-wrap">
+                        <div class="geodir-category-img">
+                          <a href="listing-single.html" tabindex="-1"
+                            ><img src="assets/images/gal/4.jpg" alt=""
+                          /></a>
+
+                          <div class="sale-window big-sale">Off 50%</div>
+                          <div class="geodir-category-opt">
+                            <div
+                              class="listing-rating card-popup-rainingvis"
+                              data-starrating2="4"
+                            >
+                              <i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i>
+                            </div>
+                            <div class="rate-class-name">
+                              <div class="score">
+                                <strong>Good</strong>12 Reviews
+                              </div>
+                              <span>4.2</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="geodir-category-content fl-wrap title-sin_item"
+                        >
+                          <div class="geodir-category-content-title fl-wrap">
+                            <div class="geodir-category-content-title-item">
+                              <h3 class="title-sin_map">
+                                <a href="listing-single.html" tabindex="-1"
+                                  >Grand Hero Palace</a
+                                >
+                              </h3>
+                              <div class="geodir-category-location fl-wrap">
+                                <a href="#" class="map-item" tabindex="-1"
+                                  ><i class="fas fa-map-marker-alt"></i> W 85th
+                                  St, New York, USA</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <p>
+                            Morbi suscipit erat in diam bibendum rutrum in nisl.
+                            Aliquam et purus ante.
+                          </p>
+                          <ul class="facilities-list fl-wrap">
+                            <li>
+                              <i class="fal fa-wifi"></i><span>Free WiFi</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-parking"></i><span>Parking</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-smoking-ban"></i
+                              ><span>Non-smoking Rooms</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-utensils"></i
+                              ><span> Restaurant</span>
+                            </li>
+                          </ul>
+                          <div class="geodir-category-footer fl-wrap">
+                            <div class="geodir-opt-link">
+                              <button class="geodir-category-price">
+                              More Details & Book Now
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <!-- listing-item end -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="slick-slide" aria-hidden="true" style="width: 335px">
+                <div>
+                  <div
+                    class="slick-slide-item"
+                    style="width: 100%; display: inline-block"
+                  >
+                    <div class="listing-item">
+                      <article class="geodir-category-listing fl-wrap">
+                        <div class="geodir-category-img">
+                          <a href="listing-single.html" tabindex="-1"
+                            ><img src="assets/images/gal/8.jpg" alt=""
+                          /></a>
+                          <div class="listing-avatar">
+                            <a href="author-single.html" tabindex="-1"
+                              ><img src="assets/images/avatar/1.jpg" alt=""
+                            /></a>
+                            <span class="avatar-tooltip"
+                              >Added By <strong>Alisa Noory</strong></span
+                            >
+                          </div>
+                          <div class="sale-window">Sale 20%</div>
+                          <div class="geodir-category-opt">
+                            <div
+                              class="listing-rating card-popup-rainingvis"
+                              data-starrating2="5"
+                            >
+                              <i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i
+                              ><i class="fa fa-star"></i>
+                            </div>
+                            <div class="rate-class-name">
+                              <div class="score">
+                                <strong>Very Good</strong>27 Reviews
+                              </div>
+                              <span>5.0</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="geodir-category-content fl-wrap title-sin_item"
+                        >
+                          <div class="geodir-category-content-title fl-wrap">
+                            <div class="geodir-category-content-title-item">
+                              <h3 class="title-sin_map">
+                                <a href="listing-single.html" tabindex="-1"
+                                  >Premium Plaza Hotel</a
+                                >
+                              </h3>
+                              <div class="geodir-category-location fl-wrap">
+                                <a href="#" class="map-item" tabindex="-1"
+                                  ><i class="fas fa-map-marker-alt"></i> 27th
+                                  Brooklyn New York, USA</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <p>
+                            Sed interdum metus at nisi tempor laoreet. Integer
+                            gravida orci a justo sodales.
+                          </p>
+                          <ul class="facilities-list fl-wrap">
+                            <li>
+                              <i class="fal fa-wifi"></i><span>Free WiFi</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-parking"></i><span>Parking</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-smoking-ban"></i
+                              ><span>Non-smoking Rooms</span>
+                            </li>
+                            <li>
+                              <i class="fal fa-utensils"></i
+                              ><span> Restaurant</span>
+                            </li>
+                          </ul>
+                          <div class="geodir-category-footer fl-wrap">
+                            <div class="geodir-opt-link">
+                              <button class="geodir-category-price">
+                              More Details & Book Now
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!--listing-carousel end-->
+        <!-- <div class="swiper-button-prev sw-btn">
+          <i class="fa fa-long-arrow-left"></i>
+        </div>
+        <div class="swiper-button-next sw-btn">
+          <i class="fa fa-long-arrow-right"></i>
+        </div> -->
+      </div>
+      <!--  carousel end-->
+    </section>
+    <!-- section end -->
+    <!--section -->
+
+    <!-- section end -->
+  </div>
+  <!-- content end-->
+  <app-footer></app-footer>
+</div>
