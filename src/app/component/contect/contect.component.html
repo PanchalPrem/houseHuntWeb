@@ -64,18 +64,18 @@
                               </div>
                               <div id="contact-form">
                                   <div id="message"></div>
-                                  <form  class="custom-form" >
+                                  <form  class="custom-form" [formGroup]="inquiryForm" (ngSubmit)="submit()" >
                                       <!-- <fieldset> -->
                                           <label><i class="fal fa-user"></i></label>
-                                          <input type="text" name="name" id="name" placeholder="Your Name" value=""/>
+                                          <input type="text" placeholder="Your Name"formControlName="name" />
                                           <div class="clearfix"></div>
                                           <label><i class="fal fa-envelope"></i>  </label>
-                                          <input type="text"  name="email" id="email" placeholder="Email Address" value=""/>
+                                          <input type="text"   placeholder="Email Address" formControlName="email" />
                                           <label><i class="fal fa-mobile"></i>  </label>
-                                          <input type="text"  name="email" id="email" placeholder="Enter Mobile" value=""/>
-                                          <textarea name="comments"  id="comments" cols="40" rows="3" placeholder="Your Message:"></textarea>
+                                          <input type="text"  placeholder="Enter Mobile" formControlName="number" />
+                                          <textarea name="comments"  id="comments" cols="40" rows="3" placeholder="Your Message:" formControlName="message"></textarea>
                                       <!-- </fieldset> -->
-                                      <button class="btn float-btn color2-bg" style="margin-top:15px;" id="submit">Send Message<i class="fal fa-angle-right"></i></button>
+                                      <button type="submit" class="btn float-btn color2-bg" style="margin-top:15px;" id="submit">Send Message<i class="fal fa-angle-right"></i></button>
                                   </form>
                               </div>
                               <!-- contact form  end-->

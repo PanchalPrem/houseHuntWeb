@@ -9,7 +9,7 @@ import { FooterComponent } from './shared-Component/footer/footer.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContectComponent } from './component/contect/contect.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
   ],
   providers: [],

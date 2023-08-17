@@ -178,6 +178,8 @@
         >
           <div class="slick-list draggable">
             <div class="slick-track">
+
+              <!-- house list start -->
               <div
                 class="slick-slide"
                 id=""
@@ -187,11 +189,11 @@
                 <div>
                   <div
                     class="slick-slide-item"
-                    style="width: 100%; display: inline-block"
+                    style="width: 100%; display: inline-block"  *ngFor="let item of housedata"
                   >
                     <!-- listing-item  -->
-                    <div class="listing-item">
-                      <article class="geodir-category-listing fl-wrap">
+                    <div class="listing-item" >
+                      <article class="geodir-category-listing fl-wrap" >
                         <div class="geodir-category-img">
                           <a href="listing-single.html" tabindex="-1"
                             ><img src="assets/images/gal/4.jpg" alt=""
@@ -268,6 +270,7 @@
                   </div>
                 </div>
               </div>
+              <!-- house list end -->
 
               <!-- <div class="slick-slide" aria-hidden="true" style="width: 335px">
                 <div>
