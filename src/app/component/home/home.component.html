@@ -224,23 +224,20 @@
                           <div class="geodir-category-content-title fl-wrap">
                             <div class="geodir-category-content-title-item">
                               <h3 class="title-sin_map">
-                                <a href="listing-single.html" tabindex="-1"
-                                  >Grand Hero Palace</a
+                                <a >Flat's</a
                                 >
                               </h3>
                               <div class="geodir-category-location fl-wrap">
-                                <a href="#" class="map-item" tabindex="-1"
-                                  ><i class="fas fa-map-marker-alt"></i> W 85th
-                                  St, New York, USA</a
+                                <a class="map-item"
+                                  ><i class="fas fa-map-marker-alt"></i> {{item.address}}</a
                                 >
                               </div>
                             </div>
                           </div>
                           <p>
-                            Morbi suscipit erat in diam bibendum rutrum in nisl.
-                            Aliquam et purus ante.
+                           {{item.configuration}}
                           </p>
-                          <ul class="facilities-list fl-wrap">
+                          <!-- <ul class="facilities-list fl-wrap">
                             <li>
                               <i class="fal fa-wifi"></i><span>Free WiFi</span>
                             </li>
@@ -255,12 +252,15 @@
                               <i class="fal fa-utensils"></i
                               ><span> Restaurant</span>
                             </li>
-                          </ul>
+                          </ul> -->
                           <div class="geodir-category-footer fl-wrap">
                             <div class="geodir-opt-link">
-                              <button class="geodir-category-price">
-                                More Details & Book Now
+                              <button class="geodir-category-price" [routerLink]="['/book/'+item._id]">
+                                <!-- More Details & Book Now -->
+                               Book Now
+
                               </button>
+                              <button class="geodir-category-price moreD" [routerLink]="['/home-details']"> More Details </button>
                             </div>
                           </div>
                         </div>

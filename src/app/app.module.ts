@@ -10,6 +10,9 @@ import { AboutComponent } from './component/about/about.component';
 import { ContectComponent } from './component/contect/contect.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
+import { HomeDetailsComponent } from './component/home-details/home-details.component';
+import { HomeBookComponent } from './component/home-book/home-book.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { HttpClientModule } from  '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     AboutComponent,
-    ContectComponent
+    ContectComponent,
+    HomeDetailsComponent,
+    HomeBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
 
   ],
   providers: [],

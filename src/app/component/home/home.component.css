@@ -11,7 +11,13 @@ ul.facilities-list.fl-wrap {
   text-align: center;
 }
 button.geodir-category-price {
-  width: 100%;
+  /* width: 100%; */
   background: #ffe816;
+  width: 45%;
+  margin: 3px;
   color: black;
+}
+
+ .geodir-category-price .moreD{
+  background: #4a56ff !important;
 }

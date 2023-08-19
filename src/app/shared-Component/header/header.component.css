@@ -1,1 +1,10 @@
+.header-user-name i{
+font-size: 20px;
+line-height: 1.7;
+margin: 0px 11px;
+
+}
+.log-submit-btn{
+  float: right
+}
 

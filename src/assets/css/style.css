@@ -1004,7 +1004,7 @@ nav li ul a:before , nav li ul a:after {
 	float:right;
 	position:relative;
 	top:8px;
-	margin-right:50px;
+	margin-right:0px;
 }
 .header-user-name {
 	position:relative;
@@ -1016,7 +1016,7 @@ nav li ul a:before , nav li ul a:after {
     text-overflow: ellipsis;
 	padding-top:5px;
 	font-weight:700;
-	font-size:12px;
+	font-size:15px;
 }
 .header-user-name:before , .qty-dropdown-header:before , .main-search-input-item_small:before {
 	font-family: Font Awesome\ 5 Pro;
@@ -2367,10 +2367,11 @@ section.hero-section   {
     overflow:hidden;
 }
 .main-register-holder {
-	max-width:420px;
-	margin:100px auto 50px;
-	position:relative;
-	z-index:5;
+  max-width: 500px;
+  /* margin: 0px auto 0px; */
+  max-height: 450px;
+  position: relative;
+  z-index: 5;
 }
 .main-register h3 {
 	float:left;
@@ -2395,6 +2396,7 @@ section.hero-section   {
 	width:100%;
 	position:relative;
 	padding:0 0 10px;
+  text-align: center;
 	margin-bottom:50px;
 	background:#fff;
 	border-radius:10px;
@@ -2516,7 +2518,7 @@ section.hero-section   {
 	 width: 100%;
 }
 .tabs-menu {
-	float:left;
+	/* float:left; */
 	width:100%;
 }
 .tabs-menu  li {
@@ -2551,6 +2553,7 @@ section.hero-section   {
 #tab-1 {
 	display: block;
 }
+
 /*-------------Forms---------------------------------------*/
 .custom-form {
 	float:left;
@@ -8921,6 +8924,12 @@ section.hero-section  {
 .ajax-modal-container {
     width: 400px;
 }
+.header-user-name i{
+  font-size: 5px;
+  line-height: 0.5;
+  margin: 0px 11px;
+
+  }
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .bg {

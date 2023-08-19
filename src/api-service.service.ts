@@ -14,4 +14,12 @@ export class ApiServiceService {
   gtehouse(data:any){
     return this.http.post<any>(this.url + 'list', data);
   }
+
+  signIn(data:any){
+    return this.http.post<any>(this.url + 'user-sign-in', data);
+  }
+
+  signUp(data:any){
+    return this.http.post<any>(this.url + 'user-sign-up', data);
+  }
 }
