@@ -9,7 +9,8 @@ button#submit {
 }
 .custom-form  textarea, .custom-form input[type="text"], .custom-form  input[type=email], .custom-form  input[type=password],   input[type=button] {
   float: left;
-  border: 1px solid #bdb8b861;
+  /* border: 1px solid #bdb8b861; */
+  border: 1px solid #c2bbbb94 !important;
   background: #F7F9FB;
   width: 100%;
   padding: 14px 20px 14px 45px;
