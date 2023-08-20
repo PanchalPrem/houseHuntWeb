@@ -7,6 +7,7 @@ import { ApiServiceService } from 'src/api-service.service';
 })
 export class HomeComponent implements OnInit {
   housedata: any = [];
+  imageurl:any
   constructor(private service: ApiServiceService) {}
 
   ngOnInit(): void {
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
     let data = { text: 'indore' };
     this.service.gtehouse(data).subscribe((res: any) => {
       this.housedata = res.data;
-      console.log(res.data);
+      this.imageurl=res.filePath
+
     });
   }
 }

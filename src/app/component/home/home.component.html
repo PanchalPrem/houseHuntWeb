@@ -46,7 +46,7 @@
                   id="autocompleteid2"
                   autocomplete="off"
                 />
-                <!-- <a href="#"><i class="fal fa-dot-circle"></i></a> -->
+                <!-- <a><i class="fal fa-dot-circle"></i></a> -->
               </div>
               <div
                 class="main-search-input-item main-date-parent main-search-input-item_small"
@@ -129,9 +129,7 @@
                 </div>
               </div>
               <button
-                class="main-search-button color2-bg"
-                onclick="window.location.href='listing.html'"
-              >
+                class="main-search-button color2-bg">
                 Search <i class="fal fa-search"></i>
               </button>
             </div>
@@ -184,7 +182,7 @@
                 id=""
                 aria-hidden="true"
                 style="width: 335px"
-                *ngFor="let item of housedata"
+                *ngFor="let item of housedata ; let i = index"
               >
                 <div>
                   <div
@@ -195,11 +193,10 @@
                     <div class="listing-item">
                       <article class="geodir-category-listing fl-wrap">
                         <div class="geodir-category-img">
-                          <a href="listing-single.html" tabindex="-1"
-                            ><img src="assets/images/gal/4.jpg" alt=""
-                          /></a>
-
-                          <div class="sale-window big-sale">Off 50%</div>
+                          <!-- <a><img src="assets/images/gal/4.jpg" alt=""/></a> -->
+                          <!-- <a><img [src]=" item.houseImage.length==0?'': 'https://househuntt.com/apiHouse/assets/house'+item.houseImage[0].imageName" alt=""/></a> -->
+                           <a><img [src]="item.houseImage.length=='0'?'assets/images/gal/4.jpg':'https://househuntt.com/apiHouse/assets/house/'+item.houseImage[0].imageName" alt=""/></a>
+                          <div class="sale-window big-sale">Off 50% </div>
                           <div class="geodir-category-opt">
                             <div
                               class="listing-rating card-popup-rainingvis"
@@ -214,7 +211,7 @@
                               <div class="score">
                                 <strong>Good</strong>12 Reviews
                               </div>
-                              <span>4.2</span>
+                              <span>5</span>
                             </div>
                           </div>
                         </div>
@@ -224,7 +221,7 @@
                           <div class="geodir-category-content-title fl-wrap">
                             <div class="geodir-category-content-title-item">
                               <h3 class="title-sin_map">
-                                <a >Flat's</a
+                                <a >Flat's </a
                                 >
                               </h3>
                               <div class="geodir-category-location fl-wrap">

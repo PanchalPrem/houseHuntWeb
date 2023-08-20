@@ -65,7 +65,7 @@ function  initEasybook() {
             });
 
         });
-		
+
     $(".rooms-menu a").on("click", function (a) {
         a.preventDefault();
         $(this).parent().addClass("current");
@@ -73,8 +73,8 @@ function  initEasybook() {
         var b = $(this).attr("href");
         $(".tab-content").not(b).css("display", "none");
         $(b).fadeIn();
-    });		
-		
+    });
+
     }
     initHiddenGal();
     //   Alax modal------------------
@@ -169,7 +169,7 @@ function  initEasybook() {
 			$("#weather-widget").ideaboxWeather({
 			location		: datacityw,
 		});
- 
+
     //   Contact form------------------
     $(document).on('submit', '#contactform', function () {
         var a = $(this).attr("action");
@@ -374,12 +374,12 @@ function  initEasybook() {
         type: "single",
         hide_min_max: true,
     });
-    $("form.book-form[name=bookFormCalc]").jAutoCalc("destroy");
-    $("form.book-form[name=bookFormCalc]").jAutoCalc({
-        initFire: true,
-        decimalPlaces: 0,
-        emptyAsZero: true
-    });
+    // $("form.book-form[name=bookFormCalc]").jAutoCalc("destroy");
+    // $("form.book-form[name=bookFormCalc]").jAutoCalc({
+    //     initFire: true,
+    //     decimalPlaces: 0,
+    //     emptyAsZero: true
+    // });
     $("form[name=rangeCalc]").jAutoCalc("destroy");
     $("form[name=rangeCalc]").jAutoCalc({
         initFire: true,
@@ -1010,14 +1010,14 @@ function  initEasybook() {
 	function hideBookingForm (){
 		$(".booking-modal-wrap , .bmw-overlay").fadeOut(400);
 		$("html, body").removeClass("hid-body");
-	}	
+	}
     $(".booking-modal-close , .bmw-overlay").on("click", function () {
   		hideBookingForm ();
     });
-    $(".book-btn").on("click", function (e) {
-		e.preventDefault();
-  		showBookingForm ();
-    });	
+    // $(".book-btn").on("click", function (e) {
+		// e.preventDefault();
+  	// 	showBookingForm ();
+    // });
 }
 //   Parallax ------------------
 function initparallax() {
@@ -1125,7 +1125,7 @@ $(".notification-close").on("click", function () {
 });
  document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
-}); 
+});
 //   Init All ------------------
 $(document).ready(function () {
     initEasybook();
