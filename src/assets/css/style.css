@@ -1,14 +1,4 @@
-f@charset "utf-8";
-/*======================================
- [ -Main Stylesheet-
-  Theme: EasyBook
-  Version: 1.0
-  Last change: 16/08/2018 ]
-++ Fonts ++
-++ General Style ++
-++ Typography ++
-++ loader ++
-++ Content Styles ++
+
 
 /*-------------Fonts---------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Nunito:400,600,700,800,900&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese');
@@ -220,7 +210,7 @@ transform: rotate(360deg);
 }
 .box-item:before {
 	content:'';
-	position:absolute;l
+	position:absolute;
 	top:0;
 	left:0;
 	width:100%;
@@ -3081,7 +3071,6 @@ input[type=number]
 }
 #singleMap    {
 	width:100%;
-	position: ;
 	height:300px;
 	float:left;
 	margin-bottom:30px;
@@ -6488,9 +6477,7 @@ article.post-article .list-single-main-item {
 	margin-right:-100px;
 }
 /*------Dasboard------------------------------------------------*/
-.dasboard-wrap {
-	padding-left:290px;
-}
+
 .dasboard-sidebar {
 	position:absolute;
 	left:0;

@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   getHouse() {
-    let data = { text: 'indore' };
+    let data = { text: '' };
     this.service.gtehouse(data).subscribe((res: any) => {
       this.housedata = res.data;
       this.imageurl=res.filePath

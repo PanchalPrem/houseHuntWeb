@@ -28,19 +28,29 @@
           </ul>
         </nav>
       </div>
-      <div class="header-user-menu">
-        <div class="header-user-name" (click)="openWindowCustomClass(content1)">
-          <span
+      <div class="header-user-menu ul_set">
+        <div ngbDropdown class="d-inline-block">
+        <!-- <div class="header-user-name"  id="dropdownBasic1" ngbDropdownToggle (click)="openWindowCustomClass(content1)"> -->
+          <button   id="dropdownBasic1" ngbDropdownToggle>
+         Profile
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem [routerLink]="['/my-Booking']">My Booking</button>
+            <button ngbDropdownItem class="modopen" (click)="openWindowCustomClass(content1)">Sign In / sign Up</button>
+            <button ngbDropdownItem  (click)="logOut()">Log Out</button>
+          </div>
+          <!-- <span
             ><i
               class="fa fa-sign-in show-reg-form modal-open"
               aria-hidden="true"
             ></i
           ></span>
-          Sign In
+          Sign In -->
         </div>
       </div>
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
   <ng-template #content1 let-modal>
     <div class="reg-overlay"></div>
     <div class="main-register-holder">
