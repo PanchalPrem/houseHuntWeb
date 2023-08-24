@@ -21,3 +21,21 @@ button.geodir-category-price {
  .geodir-category-price .moreD{
   background: #4a56ff !important;
 }
+.slick-slider .slick-list {
+  display: flex !important;
+   flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+.slick-slide {
+  padding: 0px 0px 17px;
+
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(2.5 * var(--bs-gutter-x)) !important;
+}

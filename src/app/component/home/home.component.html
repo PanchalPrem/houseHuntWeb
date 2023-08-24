@@ -19,12 +19,6 @@
       <div class="hero-section-wrap fl-wrap">
         <div class="container">
           <div class="home-intro">
-            <div class="section-title-separator">
-              <span
-                ><i class="fas fa-star"></i><i class="fas fa-star"></i
-                ><i class="fas fa-star"></i
-              ></span>
-            </div>
             <h2>House Hunt Flat Booking System</h2>
             <span class="section-separator"></span>
             <h3>Let's start exploring the world together with house hunt</h3>
@@ -128,8 +122,7 @@
                   </div>
                 </div>
               </div>
-              <button
-                class="main-search-button color2-bg">
+              <button class="main-search-button color2-bg">
                 Search <i class="fal fa-search"></i>
               </button>
             </div>
@@ -153,12 +146,6 @@
       <!-- container-->
       <div class="container">
         <div class="section-title">
-          <div class="section-title-separator">
-            <span
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-            ></span>
-          </div>
           <h2>Recently Added Flats</h2>
           <span class="section-separator"></span>
           <p>
@@ -182,31 +169,28 @@
                 id=""
                 aria-hidden="true"
                 style="width: 335px"
-                *ngFor="let item of housedata ; let i = index"
+                *ngFor="let item of housedata; let i = index"
               >
                 <div>
-                  <div
-                    class="slick-slide-item"
-                    style="width: 100%; display: inline-block"
-                  >
+                  <div class="slick-slide-item">
                     <!-- listing-item  -->
                     <div class="listing-item">
                       <article class="geodir-category-listing fl-wrap">
                         <div class="geodir-category-img">
                           <!-- <a><img src="assets/images/gal/4.jpg" alt=""/></a> -->
                           <!-- <a><img [src]=" item.houseImage.length==0?'': 'https://househuntt.com/apiHouse/assets/house'+item.houseImage[0].imageName" alt=""/></a> -->
-                           <a><img [src]="item.houseImage.length=='0'?'assets/images/gal/4.jpg':'https://househuntt.com/apiHouse/assets/house/'+item.houseImage[0].imageName" alt=""/></a>
-                          <div class="sale-window big-sale">Off 50% </div>
+                          <a
+                            ><img
+                              [src]="
+                                item.houseImage.length == '0'
+                                  ? 'assets/images/gal/4.jpg'
+                                  : 'https://househuntt.com/apiHouse/assets/house/' +
+                                    item.houseImage[0].imageName
+                              "
+                              alt=""
+                          /></a>
+                          <div class="sale-window big-sale">Off 50%</div>
                           <div class="geodir-category-opt">
-                            <div
-                              class="listing-rating card-popup-rainingvis"
-                              data-starrating2="4"
-                            >
-                              <i class="fa fa-star"></i
-                              ><i class="fa fa-star"></i
-                              ><i class="fa fa-star"></i
-                              ><i class="fa fa-star"></i>
-                            </div>
                             <div class="rate-class-name">
                               <div class="score">
                                 <strong>Good</strong>12 Reviews
@@ -221,18 +205,18 @@
                           <div class="geodir-category-content-title fl-wrap">
                             <div class="geodir-category-content-title-item">
                               <h3 class="title-sin_map">
-                                <a >Flat's </a
-                                >
+                                <a>Flat's </a>
                               </h3>
                               <div class="geodir-category-location fl-wrap">
                                 <a class="map-item"
-                                  ><i class="fas fa-map-marker-alt"></i> {{item.address}}</a
+                                  ><i class="fas fa-map-marker-alt"></i>
+                                  {{ item.address }}</a
                                 >
                               </div>
                             </div>
                           </div>
                           <p>
-                           {{item.configuration}}
+                            {{ item.configuration }}
                           </p>
                           <!-- <ul class="facilities-list fl-wrap">
                             <li>
@@ -252,10 +236,12 @@
                           </ul> -->
                           <div class="geodir-category-footer fl-wrap">
                             <div class="geodir-opt-link">
-                              <button class="geodir-category-price" [routerLink]="['/book/'+item._id]">
+                              <button
+                                class="geodir-category-price"
+                                [routerLink]="['/book/' + item._id]"
+                              >
                                 <!-- More Details & Book Now -->
-                               Book Now
-
+                                Book Now
                               </button>
                               <!-- <button class="geodir-category-price moreD" [routerLink]="['/home-details/'+item._id]"> More Details </button> -->
                             </div>
