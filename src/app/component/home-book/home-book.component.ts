@@ -10,6 +10,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home-book',
   templateUrl: './home-book.component.html',
@@ -25,7 +26,7 @@ export class HomeBookComponent implements OnInit {
     private service: ApiServiceService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private fb: FormBuilder
+    private fb: FormBuilder,private toster:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +68,11 @@ export class HomeBookComponent implements OnInit {
         if (result.isConfirmed) {
           this.service.houseBook(data).subscribe((res: any) => {
             console.log(res);
+            if (res.ErrorCode==200) {
+              this.toster.success(res.ErrorMessage);
+            } else {
+              this.toster.warning(res.ErrorMessage);
+            }
 
           });
         }

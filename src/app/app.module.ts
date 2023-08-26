@@ -8,11 +8,13 @@ import { HeaderComponent } from './shared-Component/header/header.component';
 import { FooterComponent } from './shared-Component/footer/footer.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContectComponent } from './component/contect/contect.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
 import { HomeBookComponent } from './component/home-book/home-book.component';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyBookingComponent } from './component/my-booking/my-booking.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { MyBookingComponent } from './component/my-booking/my-booking.component'
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule,NgbDropdownModule
+    NgbModule,NgbDropdownModule,ToastrModule.forRoot(),FormsModule
 
   ],
   providers: [],

@@ -169,7 +169,7 @@
                 id=""
                 aria-hidden="true"
                 style="width: 335px"
-                *ngFor="let item of housedata; let i = index"
+                *ngFor="let item of itemsToShow; let i = index"
               >
                 <div>
                   <div class="slick-slide-item">
@@ -256,22 +256,39 @@
               <!-- house list end -->
             </div>
           </div>
+          <div class="pagination-controls">
+            <button class="pagi" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+            <span>Page {{ currentPage }} of {{ totalPages }}</span>
+            <button class="pagi" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+          </div>
         </div>
-        <!--listing-carousel end-->
-        <!-- <div class="swiper-button-prev sw-btn">
-          <i class="fa fa-long-arrow-left"></i>
-        </div>
-        <div class="swiper-button-next sw-btn">
-          <i class="fa fa-long-arrow-right"></i>
-        </div> -->
-      </div>
-      <!--  carousel end-->
-    </section>
-    <!-- section end -->
-    <!--section -->
 
-    <!-- section end -->
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Please enter pin code</h4>
+            <button  style="color: rgb(255, 0, 0); text-decoration: none; display: none;"type="button" class="close-reg color-bg" aria-label="Close" (click)="modal.dismiss('Cross click')"><a class="fa fa-times" ></a></button>
+          </div>
+          <div class="modal-body">
+            <!-- <form> -->
+              <div class="mb-3">
+                <!-- <label for="dateOfBirth">Date of birth</label> -->
+                <div class="input-group">
+                  <input type="number" class="form-control" placeholder="Enter Pin Code" [(ngModel)]="pinCode">
+                </div>
+              </div>
+            <!-- </form> -->
+            <button type="button" class=" btn btn-primary color-bg" (click)="submit()">Submit</button>
+          </div>
+          <!-- <div class="modal-footer"> -->
+          <!-- </div> -->
+        </ng-template>
+
+        <button style="display: none;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+
+      </div>
+    </section>
   </div>
-  <!-- content end-->
   <app-footer></app-footer>
+
 </div>

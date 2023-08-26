@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {
   NgbActiveModal,
   NgbModal,
@@ -7,6 +7,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from 'src/api-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 declare var $: any;
 @Component({
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit {
     config: NgbModalConfig,
     private modalService: NgbModal,
     private service: ApiServiceService,
-    private fb: FormBuilder
+    private fb: FormBuilder,private toster:ToastrService
   ) {}
   modalReference: any;
   isBtnActive: any = 1;
@@ -61,16 +62,14 @@ console.log(this.isLogin);
   signin() {
     this.service.signIn(this.signInForm.value).subscribe((res) => {
       if (res.ErrorCode == 200) {
-        console.log(res);
+        this.toster.success("Login successfully")
         localStorage.setItem('loginKey', res.authkey);
         localStorage.setItem('logId', res.data[0]._id);
-        localStorage.setItem("userData",JSON.stringify(res.data[0]))
-
+        localStorage.setItem("userData",JSON.stringify(res.data[0]));
         this.signInForm.reset();
         $('.close-reg').trigger('click');
-        alert('Sign In successfully');
       } else {
-        alert(res.ErrorMessage);
+        this.toster.warning(res.ErrorMessage);
       }
     });
   }
@@ -80,9 +79,9 @@ console.log(this.isLogin);
       if (res.ErrorCode == 200) {
         this.signUPForm.reset();
         $('.close-reg').trigger('click');
-        alert('registration successfully');
+        this.toster.success('registration successfully');
       } else {
-        alert(res.ErrorMessage);
+        this.toster.warning(res.ErrorMessage);
       }
     });
   }

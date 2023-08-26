@@ -4352,7 +4352,8 @@ input[type="number"] {
   cursor: pointer;
 }
 .list-single-hero {
-  padding: 250px 0 0;
+  /* padding: 250px 0 0; */
+  padding: 55px 0 0;
   overflow: hidden;
 }
 .list-single-hero-title {
@@ -8424,6 +8425,13 @@ article.post-article .list-single-main-item {
 
 /*------responsive------------------------------------------------*/
 @media only screen and (max-width: 1224px) {
+  .slick-list.draggable.row {
+    margin-left: calc(0.5 * var(--bs-gutter-x)) !important;
+    padding: 0px 126px !important;
+  }
+  .footer-contacts-widget.fl-wrap {
+    display: flex;
+  }
   .text-carousel .slick-item {
     padding: 0 5px;
   }
@@ -8441,6 +8449,9 @@ article.post-article .list-single-main-item {
   }
 }
 @media only screen and (max-width: 1064px) {
+  .slick-list.draggable.row {
+    margin-left: calc(0.5 * var(--bs-gutter-x)) !important;
+  }
   .mobile-list-controls {
     display: block;
   }
@@ -8921,6 +8932,10 @@ article.post-article .list-single-main-item {
   .rooms-details {
     margin-top: 15px;
   }
+  .slick-list.draggable.row {
+    margin-left: calc(0.5 * var(--bs-gutter-x)) !important;
+    padding: 0px 0px 0px 0px !important;
+  }
 }
 @media only screen and (max-width: 540px) {
   .home-btn,
@@ -9204,31 +9219,36 @@ article.post-article .list-single-main-item {
   }
   .list-carousel.fl-wrap.card-listing {
     margin-left: -25px !important;
-}
-ol, ul {
-  padding-left: 0rem !important;
-}
-button#dropdownBasic1{
-  padding: 6px !important;
-}
-.main-register {
-  float: left;
-  width: 100%;
-  position: relative;
-  padding: 0 0 0px;
-  text-align: center;
-  margin-bottom: 0px;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  border-radius: 7px;
-  box-shadow: 0px 0px 0px 7px rgba(255, 255, 255, 0.3);
-}
-.main-register-holder {
-  padding: 0 1px;
-}
+  }
+  ol,
+  ul {
+    padding-left: 0rem !important;
+  }
+  button#dropdownBasic1 {
+    padding: 6px !important;
+  }
+  .main-register {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 0 0 0px;
+    text-align: center;
+    margin-bottom: 0px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px 7px rgba(255, 255, 255, 0.3);
+  }
+  .main-register-holder {
+    padding: 0 1px;
+  }
 }
 @media only screen and (max-width: 420px) {
+  .slick-list.draggable.row {
+    margin-left: calc(-2.5 * var(--bs-gutter-x)) !important;
+    padding: 0px 110px !important;
+  }
 
   .add-hotel {
     display: none;
@@ -9258,7 +9278,6 @@ button#dropdownBasic1{
     line-height: 0.5;
     margin: 0px 11px;
   }
-
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   .bg {
@@ -9266,4 +9285,21 @@ button#dropdownBasic1{
     -webkit-background-size: cover;
     background-position: center;
   }
+}
+@media  screen and (min-width: 375px) and (max-width: 667px) {
+  .slick-list.draggable.row {
+    margin-left: calc(-3.5 * var(--bs-gutter-x)) !important;
+    padding: 0px 116px !important;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .slick-list.draggable.row {
+    margin-left: calc(-3.5 * var(--bs-gutter-x)) !important;
+    padding: 0px 116px !important;
+  }
+  .footer-contacts-widget.fl-wrap {
+    display: flex  !important;
+    flex-direction: column !important;
+}
 }

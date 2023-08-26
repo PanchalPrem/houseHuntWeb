@@ -39,3 +39,12 @@ button.geodir-category-price {
   margin-right: calc(-.5 * var(--bs-gutter-x));
   margin-left: calc(2.5 * var(--bs-gutter-x)) !important;
 }
+
+.pagination-controls {
+  text-align: center;
+}
+.pagi {
+  border: none;
+  padding: 0px 26px;
+  background: none;
+}
