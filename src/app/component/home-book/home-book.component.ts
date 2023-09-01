@@ -78,7 +78,7 @@ export class HomeBookComponent implements OnInit {
         }
       });
     } else {
-      $('.modopen').trigger('click');
+      $('.show-reg-form').trigger('click');
     // this.modalService.open(content, {  size: 'lg' });
     }
 

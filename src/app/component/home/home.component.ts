@@ -26,24 +26,25 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     let checkPin=localStorage.getItem('pinCode')
-    if (checkPin==(null)) {
-      $('.btn-outline-primary').trigger('click')
-    }else{
-      this.getHouse(checkPin);
-    }
-
+    // if (checkPin==(null)) {
+    //   $('.btn-outline-primary').trigger('click')
+    // }else{
+    //   this.getHouse(checkPin);
+    // }
+    this.getHouse()
   }
   open(data:any){
     this.modalService.open(data,{backdrop:'static'})
   }
-  submit(){
-    $('.close-reg').trigger('click')
-    localStorage.setItem('pinCode',this.pinCode)
-   this.getHouse(this.pinCode);
-  }
+  // submit(){
+  //   $('.close-reg').trigger('click')
+  //   localStorage.setItem('pinCode',this.pinCode)
+  //  this.getHouse(this.pinCode);
+  // }
 
- async getHouse(data1:any) {
-    let data = { text: data1 };
+//  async getHouse(data1:any) {
+ async getHouse() {
+    let data = { text: '' };
    await this.service.gtehouse(data).subscribe((res: any) => {
       this.housedata = res.data;
       this.imageurl=res.filePath

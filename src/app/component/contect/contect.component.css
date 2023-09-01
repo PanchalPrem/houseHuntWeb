@@ -23,3 +23,6 @@ label i {
   font-size: 16px !important;
   line-height: 17px !important;
 }
+section.middle-padding {
+  padding: 70px 0 !important;
+}

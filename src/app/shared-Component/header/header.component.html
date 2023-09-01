@@ -1,18 +1,66 @@
 <header class="main-header">
-  <div class="header-inner fl-wrap">
-    <div class="logo-holder">
-      <a><img src="assets/images/logo (2).png" alt="" /></a>
-    </div>
+  <div class="header-top fl-wrap">
     <div class="container">
-      <!-- <div class="show-search-button"><span>Search</span> <i class="fas fa-search"></i> </div> -->
-
-      <div class="nav-holder main-menu">
+      <div class="logo-holder">
+        <a routerLink="/"><img src="assets/images/logo (2).png" alt="" /></a>
+      </div>
+      <div
+        class="show-reg-form modal-open"
+        (click)="openWindowCustomClass(content1)"
+      >
+        <i class="fa fa-sign-in"></i>Sign In
+      </div>
+          </div>
+  </div>
+  <div class="header-inner fl-wrap">
+    <div class="container">
+      <div class="header-user-menu">
+        <div
+          class="header-user-name"
+          *ngIf="isLogin != null"
+          (click)="openProfile()"
+        >
+          <span><img src="assets/images/avatar/user2.png" alt="" /></span>
+          My account
+        </div>
+        <ul class="proFile">
+          <li [routerLink]="['/my-Booking']"><a>My Booking</a></li>
+          <li (click)="logOut()"><a>Log Out</a></li>
+        </ul>
+      </div>
+      <div class="nav-button-wrap">
+        <div class="nav-button" (click)="toggle()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="main-menu nav-holder">
+        <nav class="menusb sliding-menu" style="height: 120px" *ngIf="menubar">
+          <div class="sliding-menu-wrapper" style="width: 1500px">
+            <ul
+              id="menu-panel-r1rl2"
+              class="menu-panel-root"
+              style="width: 300px"
+            >
+              <li>
+                <a [routerLink]="['/']"
+                routerLinkActive="act-link"
+                [routerLinkActiveOptions]="{ exact: true }" class="act-link nav">Home</a>
+              </li>
+              <li>
+                <a  routerLink="/about" class=" nav">About</a>
+              </li>
+              <li>
+                <a  routerLink="/contect" class="nav">Contact As </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <nav>
           <ul>
             <li>
               <a
                 [routerLink]="['/']"
-                routerLinkActive="act-link"
+                routerLinkActive="act-link nav"
                 [routerLinkActiveOptions]="{ exact: true }"
                 >Home</a
               >
@@ -28,98 +76,106 @@
           </ul>
         </nav>
       </div>
-      <div class="header-user-menu ul_set">
-        <div ngbDropdown class="d-inline-block">
-        <!-- <div class="header-user-name"  id="dropdownBasic1" ngbDropdownToggle (click)="openWindowCustomClass(content1)"> -->
-          <button   id="dropdownBasic1" ngbDropdownToggle>
-         Profile
-          </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem [routerLink]="['/my-Booking']">My Booking</button>
-            <button ngbDropdownItem class="modopen" (click)="openWindowCustomClass(content1)">Sign In / sign Up</button>
-            <button ngbDropdownItem  (click)="logOut()">Log Out</button>
-          </div>
-          <!-- <span
-            ><i
-              class="fa fa-sign-in show-reg-form modal-open"
-              aria-hidden="true"
-            ></i
-          ></span>
-          Sign In -->
-        </div>
-      </div>
-      </div>
     </div>
-  <!-- </div> -->
-  <ng-template #content1 let-modal>
-    <div class="reg-overlay"></div>
-    <div class="main-register-holder">
-      <div class="main-register fl-wrap">
-        <div
-          class="close-reg color-bg"
-          aria-label="Close"
-          (click)="modal.dismiss('Cross click')"
-        >
-          <i class="fal fa-times"></i>
-        </div>
-        <ul class="tabs-menu">
-          <li [ngClass]="{ current: isBtnActive === 1 }" (click)="toggleBtn(1)">
-            <a><i class="fal fa-sign-in-alt"></i> Login</a>
-          </li>
-          <li [ngClass]="{ current: isBtnActive === 2 }" (click)="toggleBtn(2)">
-            <a><i class="fal fa-user-plus"></i> Register</a>
-          </li>
-        </ul>
-        <div id="tabs-container">
+  </div>
+
+</header>
+
+<ng-template #content1 let-modal>
+  <div class="reg-overlay"></div>
+  <div class="main-register-holder">
+    <div class="main-register fl-wrap">
+      <div
+        class="close-reg color-bg"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <i class="fal fa-times"></i>
+      </div>
+      <ul class="tabs-menu">
+        <li [ngClass]="{ current: isBtnActive === 1 }" (click)="toggleBtn(1)">
+          <a><i class="fal fa-sign-in-alt"></i> Login</a>
+        </li>
+        <li [ngClass]="{ current: isBtnActive === 2 }" (click)="toggleBtn(2)">
+          <a><i class="fal fa-user-plus"></i> Register</a>
+        </li>
+      </ul>
+      <div id="tabs-container">
+        <div class="tab">
+          <div id="tab-1" class="tab-content">
+            <h3>
+              Sign In <span>House<strong>Hunt</strong></span>
+            </h3>
+            <div class="custom-form">
+              <form [formGroup]="signInForm" (ngSubmit)="signin()">
+                <label>Email Address <span>*</span> </label>
+                <input
+                  type="text"
+                  placeholder="Enter Email"
+                  formControlName="email"
+                />
+                <label>Password <span>*</span> </label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  formControlName="password"
+                />
+                <button type="submit" class="log-submit-btn color-bg">
+                  <span>Log In</span>
+                </button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
           <div class="tab">
-            <div id="tab-1" class="tab-content">
+            <div id="tab-2" class="tab-content">
               <h3>
-                Sign In <span>House<strong>Hunt</strong></span>
+                Sign Up <span>House<strong>Hunt</strong></span>
               </h3>
               <div class="custom-form">
-                <form [formGroup]="signInForm" (ngSubmit)="signin()">
-                  <label>Email Address <span>*</span> </label>
-                  <input type="text" placeholder="Enter Email" formControlName="email"/>
-                  <label>Password <span>*</span> </label>
-                  <input type="password" placeholder="Enter Password" formControlName="password"
+                <form
+                  class="main-register-form"
+                  id="main-register-form2"
+                  [formGroup]="signUPForm"
+                  (ngSubmit)="signUp()"
+                >
+                  <label>Full Name <span>*</span> </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Name"
+                    formControlName="name"
+                    autocomplete="new-name"
+                  />
+                  <label>Email Address <span>*</span></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Email"
+                    formControlName="email"
+                    autocomplete="new-email"
+                  />
+                  <label>Gander <span>*</span></label>
+                  <select class="form-control" formControlName="gender">
+                    <option disabled selected value>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="other">other</option>
+                  </select>
+                  <label>Password <span>*</span></label>
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    autocomplete="new-password"
+                    formControlName="password"
                   />
                   <button type="submit" class="log-submit-btn color-bg">
-                    <span>Log In</span>
+                    <span>Register</span>
                   </button>
-                  <div class="clearfix"></div>
                 </form>
               </div>
             </div>
-            <div class="tab">
-              <div id="tab-2" class="tab-content">
-                <h3>
-                  Sign Up <span>House<strong>Hunt</strong></span>
-                </h3>
-                <div class="custom-form">
-                  <form class="main-register-form" id="main-register-form2" [formGroup]="signUPForm" (ngSubmit)="signUp()">
-                    <label>Full Name <span>*</span> </label>
-                    <input type="text" placeholder="Enter Name" formControlName="name" autocomplete="new-name" />
-                    <label>Email Address <span>*</span></label>
-                    <input type="text" placeholder="Enter Email" formControlName="email" autocomplete="new-email"/>
-                    <label>Gander <span>*</span></label>
-                    <select class="form-control" formControlName="gender">
-                      <option disabled selected value>Select Gender</option>
-                      <option  value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="other">other</option>
-                    </select>
-                    <label>Password <span>*</span></label>
-                    <input  type="password" placeholder="Enter Password" autocomplete="new-password" formControlName="password"/>
-                    <button type="submit" class="log-submit-btn color-bg">
-                      <span>Register</span>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  </ng-template>
-</header>
+  </div>
+</ng-template>

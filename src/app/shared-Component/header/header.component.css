@@ -9,17 +9,14 @@ margin: 0px 11px;
 }
 .custom-form .form-control {
   float: left;
-  /* border: 1px solid #eee; */
   border: 1px solid #c2bbbb94;
   background: #F7F9FB;
   width: 100%;
-  /* padding: 14px 20px 14px 45px; */
   padding-left: 20px;
   border-radius: 6px;
   color: #666;
   font-size: 13px;
   font-weight: 600;
-  /* -webkit-appearance: none; */
 }
 
 .main-register ul{
@@ -60,3 +57,4 @@ color: #f8bb11;;
   color: #040404;
   transition: all .1s linear;
 }
+

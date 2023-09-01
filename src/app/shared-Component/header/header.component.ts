@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   NgbActiveModal,
   NgbModal,
@@ -8,6 +8,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from 'src/api-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -21,18 +22,19 @@ export class HeaderComponent implements OnInit {
     config: NgbModalConfig,
     private modalService: NgbModal,
     private service: ApiServiceService,
-    private fb: FormBuilder,private toster:ToastrService
+    private fb: FormBuilder,
+    private toster: ToastrService,private router:Router
   ) {}
   modalReference: any;
   isBtnActive: any = 1;
   signInForm: any = FormGroup;
   signUPForm: any = FormGroup;
-  isLogin:any
-
+  isLogin: any;
+  isToggled: boolean = false;
+  menubar:boolean=false;
+  openPro:boolean=false
   ngOnInit(): void {
-this.isLogin=  localStorage.getItem('logId')
-console.log(this.isLogin);
-
+    this.isLogin = localStorage.getItem('logId');
     this.signInForm = this.fb.group({
       email: [''],
       password: [''],
@@ -59,14 +61,42 @@ console.log(this.isLogin);
     }
   }
 
+  toggle() {
+    this.isToggled = !this.isToggled;
+    if (this.isToggled) {
+      $('.main-menu').removeClass('nav-holder');
+      $('.main-menu').addClass('vismobmenu');
+      this.menubar=true
+    } else {
+      $('.main-menu').addClass('nav-holder');
+      $('.main-menu').removeClass('vismobmenu');
+      this.menubar=false
+    }
+  }
+  openProfile(){
+    this.openPro=!this.openPro
+    if (this.openPro) {
+      // $('.main-menu').removeClass('nav-holder');
+      $('.proFile').addClass('hu-menu-vis');
+      // this.menubar=true
+    } else {
+      // $('.main-menu').addClass('nav-holder');
+      $('.proFile').removeClass('hu-menu-vis');
+
+      // this.menubar=false
+
+    }
+  }
+
   signin() {
     this.service.signIn(this.signInForm.value).subscribe((res) => {
       if (res.ErrorCode == 200) {
-        this.toster.success("Login successfully")
+        this.toster.success('Login successfully');
         localStorage.setItem('loginKey', res.authkey);
         localStorage.setItem('logId', res.data[0]._id);
-        localStorage.setItem("userData",JSON.stringify(res.data[0]));
+        localStorage.setItem('userData', JSON.stringify(res.data[0]));
         this.signInForm.reset();
+        this.isLogin = res.data[0]._id;
         $('.close-reg').trigger('click');
       } else {
         this.toster.warning(res.ErrorMessage);
@@ -86,7 +116,8 @@ console.log(this.isLogin);
     });
   }
 
-  logOut(){
-    localStorage.clear()
+  logOut() {
+    localStorage.clear();
+    this.router.navigateByUrl('/')
   }
 }

@@ -14,6 +14,7 @@ import { HomeBookComponent } from './component/home-book/home-book.component';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyBookingComponent } from './component/my-booking/my-booking.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FootermenuComponent } from './shared-Component/footermenu/footermenu.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr';
     AboutComponent,
     ContectComponent,
     HomeBookComponent,
-    MyBookingComponent
+    MyBookingComponent,
+    FootermenuComponent
   ],
   imports: [
     BrowserModule,
