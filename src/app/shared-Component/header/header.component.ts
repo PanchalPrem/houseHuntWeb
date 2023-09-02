@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit {
     private modalService: NgbModal,
     private service: ApiServiceService,
     private fb: FormBuilder,
-    private toster: ToastrService,private router:Router
+    private toster: ToastrService,
+    private router: Router
   ) {}
   modalReference: any;
   isBtnActive: any = 1;
@@ -31,8 +32,11 @@ export class HeaderComponent implements OnInit {
   signUPForm: any = FormGroup;
   isLogin: any;
   isToggled: boolean = false;
-  menubar:boolean=false;
-  openPro:boolean=false
+  menubar: boolean = false;
+  openPro: boolean = false;
+  loader: boolean = true;
+  isload: boolean = false;
+
   ngOnInit(): void {
     this.isLogin = localStorage.getItem('logId');
     this.signInForm = this.fb.group({
@@ -66,15 +70,15 @@ export class HeaderComponent implements OnInit {
     if (this.isToggled) {
       $('.main-menu').removeClass('nav-holder');
       $('.main-menu').addClass('vismobmenu');
-      this.menubar=true
+      this.menubar = true;
     } else {
       $('.main-menu').addClass('nav-holder');
       $('.main-menu').removeClass('vismobmenu');
-      this.menubar=false
+      this.menubar = false;
     }
   }
-  openProfile(){
-    this.openPro=!this.openPro
+  openProfile() {
+    this.openPro = !this.openPro;
     if (this.openPro) {
       // $('.main-menu').removeClass('nav-holder');
       $('.proFile').addClass('hu-menu-vis');
@@ -84,40 +88,56 @@ export class HeaderComponent implements OnInit {
       $('.proFile').removeClass('hu-menu-vis');
 
       // this.menubar=false
-
     }
   }
 
   signin() {
-    this.service.signIn(this.signInForm.value).subscribe((res) => {
-      if (res.ErrorCode == 200) {
-        this.toster.success('Login successfully');
-        localStorage.setItem('loginKey', res.authkey);
-        localStorage.setItem('logId', res.data[0]._id);
-        localStorage.setItem('userData', JSON.stringify(res.data[0]));
-        this.signInForm.reset();
-        this.isLogin = res.data[0]._id;
-        $('.close-reg').trigger('click');
-      } else {
-        this.toster.warning(res.ErrorMessage);
-      }
-    });
+    if (!this.signInForm.valid) {
+      this.isload = true;
+      this.service.signIn(this.signInForm.value).subscribe((res) => {
+        if (res.ErrorCode == 200) {
+          this.isload = false;
+          this.toster.success('Login successfully');
+          localStorage.setItem('loginKey', res.authkey);
+          localStorage.setItem('logId', res.data[0]._id);
+          localStorage.setItem('userData', JSON.stringify(res.data[0]));
+          this.signInForm.reset();
+          this.isLogin = res.data[0]._id;
+          $('.close-reg').trigger('click');
+        } else {
+          this.toster.warning(res.ErrorMessage);
+          this.isload = false;
+        }
+      });
+    } else {
+      this.toster.warning('Please fill all feilds');
+    }
   }
 
   signUp() {
-    this.service.signUp(this.signUPForm.value).subscribe((res) => {
-      if (res.ErrorCode == 200) {
-        this.signUPForm.reset();
-        $('.close-reg').trigger('click');
-        this.toster.success('registration successfully');
-      } else {
-        this.toster.warning(res.ErrorMessage);
-      }
-    });
+    if (!this.signUPForm.valid) {
+      $('.isregister').addClass('animate-flicker');
+      this.service.signUp(this.signUPForm.value).subscribe((res) => {
+        if (res.ErrorCode == 200) {
+          $('.isregister').removeClass('animate-flicker');
+
+          this.signUPForm.reset();
+          $('.close-reg').trigger('click');
+          this.toster.success('registration successfully');
+        } else {
+          this.toster.warning(res.ErrorMessage);
+          $('.isregister').removeClass('animate-flicker');
+        }
+      });
+    } else {
+      this.toster.warning('Please fill all feilds');
+    }
   }
 
   logOut() {
+    $('.proFile').removeClass('hu-menu-vis');
+    this.isLogin = null;
     localStorage.clear();
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/');
   }
 }

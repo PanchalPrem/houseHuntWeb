@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ContectComponent implements OnInit {
   inquiryForm: any = FormGroup;
+  get f() { return this.inquiryForm.controls; }
+  emailPattern = "^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.com";
   constructor(
     private service: ApiServiceService,
     private fb: FormBuilder,private toster: ToastrService
@@ -17,10 +19,10 @@ export class ContectComponent implements OnInit {
 
   ngOnInit(): void {
     this.inquiryForm = this.fb.group({
-      name: [''],
-      email: [''],
-      number: [''],
-      message: [''],
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
+      number: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      message: ['',[Validators.required]],
     });
   }
   submit() {

@@ -1,4 +1,7 @@
+
+
 <header class="main-header">
+
   <div class="header-top fl-wrap">
     <div class="container">
       <div class="logo-holder">
@@ -41,16 +44,16 @@
               class="menu-panel-root"
               style="width: 300px"
             >
-              <li>
+              <li >
                 <a [routerLink]="['/']"
                 routerLinkActive="act-link"
-                [routerLinkActiveOptions]="{ exact: true }" class="act-link nav">Home</a>
+                [routerLinkActiveOptions]="{ exact: true }" class=" nav">Home</a>
               </li>
               <li>
                 <a  routerLink="/about" class=" nav">About</a>
               </li>
               <li>
-                <a  routerLink="/contect" class="nav">Contact As </a>
+                <a  routerLink="/contect" class=" nav">Contact As </a>
               </li>
             </ul>
           </div>
@@ -66,10 +69,10 @@
               >
             </li>
             <li>
-              <a routerLink="/about" routerLinkActive="act-link">About </a>
+              <a routerLink="/about" routerLinkActive="act-link ">About </a>
             </li>
             <li>
-              <a routerLink="/contect" routerLinkActive="act-link"
+              <a routerLink="/contect" routerLinkActive="act-link "
                 >Contact As</a
               >
             </li>
@@ -82,6 +85,7 @@
 </header>
 
 <ng-template #content1 let-modal>
+
   <div class="reg-overlay"></div>
   <div class="main-register-holder">
     <div class="main-register fl-wrap">
@@ -107,21 +111,24 @@
               Sign In <span>House<strong>Hunt</strong></span>
             </h3>
             <div class="custom-form">
+
               <form [formGroup]="signInForm" (ngSubmit)="signin()">
-                <label>Email Address <span>*</span> </label>
+                <label>Email Address <span class="text-danger"> *</span> </label>
                 <input
                   type="text"
                   placeholder="Enter Email"
                   formControlName="email"
                 />
-                <label>Password <span>*</span> </label>
+                <label>Password <span class="text-danger">*</span> </label>
                 <input
                   type="password"
                   placeholder="Enter Password"
                   formControlName="password"
                 />
                 <button type="submit" class="log-submit-btn color-bg">
-                  <span>Log In</span>
+                  <span class="animate-flicker"*ngIf="isload">Login...</span>
+                  <span *ngIf="!isload">Log In</span>
+
                 </button>
                 <div class="clearfix"></div>
               </form>
@@ -139,28 +146,28 @@
                   [formGroup]="signUPForm"
                   (ngSubmit)="signUp()"
                 >
-                  <label>Full Name <span>*</span> </label>
+                  <label>Full Name <span class="text-danger">*</span> </label>
                   <input
                     type="text"
                     placeholder="Enter Name"
                     formControlName="name"
                     autocomplete="new-name"
                   />
-                  <label>Email Address <span>*</span></label>
+                  <label>Email Address <span class="text-danger">*</span></label>
                   <input
                     type="text"
                     placeholder="Enter Email"
                     formControlName="email"
                     autocomplete="new-email"
                   />
-                  <label>Gander <span>*</span></label>
+                  <label>Gander <span class="text-danger"> *</span></label>
                   <select class="form-control" formControlName="gender">
                     <option disabled selected value>Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="other">other</option>
                   </select>
-                  <label>Password <span>*</span></label>
+                  <label>Password <span class="text-danger">*</span></label>
                   <input
                     type="password"
                     placeholder="Enter Password"
@@ -168,7 +175,7 @@
                     formControlName="password"
                   />
                   <button type="submit" class="log-submit-btn color-bg">
-                    <span>Register</span>
+                    <span class="isregister">Register</span>
                   </button>
                 </form>
               </div>

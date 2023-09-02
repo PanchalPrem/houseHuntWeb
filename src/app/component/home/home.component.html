@@ -1,8 +1,6 @@
 <div id="wrapper">
   <app-header></app-header>
-  <!-- content-->
   <div class="content">
-    <!--section -->
     <section class="hero-section" data-scrollax-parent="true" id="sec1">
       <div class="hero-parallax">
         <div
@@ -23,9 +21,6 @@
             <span class="section-separator"></span>
             <h3>Let's start exploring the world together with house hunt</h3>
           </div>
-
-          <!-- search code start -->
-
           <div class="main-search-input-wrap">
             <div class="main-search-input fl-wrap">
               <div
@@ -40,7 +35,6 @@
                   id="autocompleteid2"
                   autocomplete="off"
                 />
-                <!-- <a><i class="fal fa-dot-circle"></i></a> -->
               </div>
               <div
                 class="main-search-input-item main-date-parent main-search-input-item_small"
@@ -127,8 +121,6 @@
               </button>
             </div>
           </div>
-
-          <!-- Search code end -->
         </div>
       </div>
       <div class="header-sec-link">
@@ -139,11 +131,7 @@
         </div>
       </div>
     </section>
-    <!-- section end -->
-
-    <!-- section-->
     <section class="grey-blue-bg">
-      <!-- container-->
       <div class="container">
         <div class="section-title">
           <h2>Recently Added Flats</h2>
@@ -154,16 +142,17 @@
           </p>
         </div>
       </div>
-      <!-- container end-->
-      <!-- carousel -->
       <div class="list-carousel fl-wrap card-listing">
-        <!--listing-carousel-->
         <div
           class="listing-carousel fl-wrap slick-initialized slick-slider slick-dotted"
         >
-          <div class="slick-list draggable row">
-            <div class="slick-track">
-              <!-- house list start -->
+        <div class="slick-list draggable row">
+          <div class="slick-track">
+
+            <div class="loader" *ngIf="loader">
+              <div class="loader_ajax_small"></div>
+            </div>
+
               <div
                 class="slick-slide"
                 id=""
@@ -173,13 +162,10 @@
               >
                 <div>
                   <div class="slick-slide-item">
-                    <!-- listing-item  -->
                     <div class="listing-item">
                       <article class="geodir-category-listing fl-wrap">
                         <div class="geodir-category-img">
-                          <!-- <a><img src="assets/images/gal/4.jpg" alt=""/></a> -->
-                          <!-- <a><img [src]=" item.houseImage.length==0?'': 'https://househuntt.com/apiHouse/assets/house'+item.houseImage[0].imageName" alt=""/></a> -->
-                          <a
+                         <a
                             ><img
                               [src]="
                                 item.houseImage.length == '0'
@@ -218,45 +204,25 @@
                           <p>
                             {{ item.configuration }}
                           </p>
-                          <!-- <ul class="facilities-list fl-wrap">
-                            <li>
-                              <i class="fal fa-wifi"></i><span>Free WiFi</span>
-                            </li>
-                            <li>
-                              <i class="fal fa-parking"></i><span>Parking</span>
-                            </li>
-                            <li>
-                              <i class="fal fa-smoking-ban"></i
-                              ><span>Non-smoking Rooms</span>
-                            </li>
-                            <li>
-                              <i class="fal fa-utensils"></i
-                              ><span> Restaurant</span>
-                            </li>
-                          </ul> -->
+
                           <div class="geodir-category-footer fl-wrap">
                             <div class="geodir-opt-link">
                               <button
                                 class="geodir-category-price"
                                 [routerLink]="['/book/' + item._id]"
                               >
-                                <!-- More Details & Book Now -->
                                 Book Now
                               </button>
-                              <!-- <button class="geodir-category-price moreD" [routerLink]="['/home-details/'+item._id]"> More Details </button> -->
                             </div>
                           </div>
                         </div>
                       </article>
                     </div>
-                    <!-- listing-item end -->
                   </div>
                 </div>
               </div>
-              <!-- house list end -->
             </div>
           </div>
-          <!-- <app-footermenu></app-footermenu> -->
 
           <div class="pagination-controls">
             <button class="pagi" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
@@ -271,26 +237,16 @@
             <button  style="color: rgb(255, 0, 0); text-decoration: none; display: none;"type="button" class="close-reg color-bg" aria-label="Close" (click)="modal.dismiss('Cross click')"><a class="fa fa-times" ></a></button>
           </div>
           <div class="modal-body">
-            <!-- <form> -->
               <div class="mb-3">
-                <!-- <label for="dateOfBirth">Date of birth</label> -->
                 <div class="input-group">
                   <input type="number" class="form-control" placeholder="Enter Pin Code" [(ngModel)]="pinCode">
                 </div>
               </div>
-            <!-- </form> -->
-            <!-- <button type="button" class=" btn btn-primary color-bg" (click)="submit()">Submit</button> -->
           </div>
-          <!-- <div class="modal-footer"> -->
-          <!-- </div> -->
         </ng-template>
-
         <button style="display: none;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-
-
       </div>
     </section>
   </div>
   <app-footer></app-footer>
-
 </div>

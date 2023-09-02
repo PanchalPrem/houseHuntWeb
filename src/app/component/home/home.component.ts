@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
 import { ApiServiceService } from 'src/api-service.service';
 import {
@@ -18,11 +19,10 @@ export class HomeComponent implements OnInit {
   housedata: any = [];
   imageurl:any
   pinCode:string='';
-
   itemsPerPage: number = 10;
   currentPage: number = 1;
-
-  constructor(private service: ApiServiceService,  private modalService: NgbModal,) {}
+  loader:boolean=false;
+  constructor(private service: ApiServiceService,  private modalService: NgbModal,private toster:ToastrService) {}
 
   ngOnInit(): void {
     let checkPin=localStorage.getItem('pinCode')
@@ -44,10 +44,18 @@ export class HomeComponent implements OnInit {
 
 //  async getHouse(data1:any) {
  async getHouse() {
+  this.loader=true;
     let data = { text: '' };
    await this.service.gtehouse(data).subscribe((res: any) => {
+    if (res.ErrorCode==200) {
       this.housedata = res.data;
       this.imageurl=res.filePath
+      this.loader=false
+    }else{
+      this.toster.warning('Something want wrong')
+      this.loader=false
+    }
+
 
     });
   }

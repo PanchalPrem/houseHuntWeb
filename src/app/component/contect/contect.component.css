@@ -26,3 +26,10 @@ label i {
 section.middle-padding {
   padding: 70px 0 !important;
 }
+.mssg {
+  font-size: 13px;
+  margin: 3px;
+}
+.custom-form input {
+  margin-bottom: 9px !important;
+}
