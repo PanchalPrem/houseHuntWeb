@@ -92,7 +92,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signin() {
-    if (!this.signInForm.valid) {
+    if (!this.signInForm.invalid) {
       this.isload = true;
       this.service.signIn(this.signInForm.value).subscribe((res) => {
         if (res.ErrorCode == 200) {
@@ -115,7 +115,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signUp() {
-    if (!this.signUPForm.valid) {
+    if (!this.signUPForm.invalid) {
       $('.isregister').addClass('animate-flicker');
       this.service.signUp(this.signUPForm.value).subscribe((res) => {
         if (res.ErrorCode == 200) {
