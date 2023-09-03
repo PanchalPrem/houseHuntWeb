@@ -6973,22 +6973,22 @@ article.post-article .list-single-main-item {
   left: 0;
   z-index: 1;
 }
-#myChartLegend {
+/* #myChartLegend {
   float: right;
-}
+} */
 .chart-header {
   margin-bottom: 20px;
 }
 .chart-header .listsearch-input-item {
   width: 150px;
 }
-[class="0-legend"] {
+/* [class="0-legend"] {
   cursor: pointer;
   list-style: none;
   padding-left: 0;
   float: right;
-}
-[class="0-legend"] li {
+} */
+/* [class="0-legend"] li {
   float: left;
   padding: 14px 25px;
   border-radius: 2px;
@@ -6997,8 +6997,8 @@ article.post-article .list-single-main-item {
   background: #ecf6f8;
   font-weight: 500;
   margin-left: 10px;
-}
-[class="0-legend"] li.hidden-lable {
+} */
+/* [class="0-legend"] li.hidden-lable {
   text-decoration: line-through;
 }
 [class="0-legend"] li span {
@@ -7007,7 +7007,7 @@ article.post-article .list-single-main-item {
   height: 10px;
   margin-right: 10px;
   width: 10px;
-}
+} */
 .dashboard-list-box {
   border: 1px solid #eee;
   border-radius: 10px;
@@ -9232,10 +9232,10 @@ article.post-article .list-single-main-item {
     color: #3aaced !important;
     box-shadow: none;
   }
-  #myChartLegend {
+  /* #myChartLegend {
     float: left;
     margin-top: 10px;
-  }
+  } */
   #myChartLegend li {
     margin-left: 0;
     margin-right: 10px;

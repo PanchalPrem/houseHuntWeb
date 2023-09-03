@@ -32,7 +32,7 @@ export class ApiServiceService {
   userData: any;
   myBooking() {
     this.userData = localStorage.getItem('userData');
-    let token = JSON.parse(this.userData);
+    let token:any = JSON.parse(this.userData);
     let key = localStorage.getItem('loginKey');
 
     let header: any = new HttpHeaders()

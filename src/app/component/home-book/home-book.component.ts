@@ -38,7 +38,7 @@ export class HomeBookComponent implements OnInit {
       if (res.ErrorCode == 200) {
         this.houseDetails = res.data[0];
         this.imageUrl = res.filePath;
-        console.log(this.houseDetails);
+
       } else {
         alert(res.ErrorMessage);
       }
@@ -67,7 +67,7 @@ export class HomeBookComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           this.service.houseBook(data).subscribe((res: any) => {
-            console.log(res);
+
             if (res.ErrorCode==200) {
               this.toster.success(res.ErrorMessage);
             } else {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 import { ApiServiceService } from 'src/api-service.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class MyBookingComponent implements OnInit {
   constructor(private service:ApiServiceService) { }
 
   ngOnInit(): void {
-    this.service.myBooking().subscribe((res:any)=>{
-      console.log(res);
+
+  this.service.myBooking().subscribe((res:any)=>{
+
 
     })
   }
