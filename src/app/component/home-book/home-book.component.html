@@ -16,17 +16,12 @@
           <div class="container">
             <div class="row">
               <div class="col-md-7">
-                <div class="listing-rating-wrap">
-                  <div
-                    class="listing-rating card-popup-rainingvis"
-                    data-starrating2="5"
-                  ></div>
-                </div>
+
                 <h2>
                   <span>{{ houseDetails.categoryDetails[0].name }}</span>
                 </h2>
                 <div class="list-single-header-contacts fl-wrap">
-                  <ul>
+                  <ul class="box_1">
                     <li><i class="far fa-phone"></i><a>+7(111)123456789</a></li>
                     <!-- <li><i class="far fa-map-marker-alt"></i><a >USA 27TH Brooklyn NY</a></li> -->
                     <li>
@@ -38,7 +33,7 @@
             </div>
             <div class="breadcrumbs-hero-buttom fl-wrap">
               <div class="list-single-hero-price">
-                Rant<span>{{ houseDetails.rent }}</span>
+               Rant<span><span class="fa fa-inr"></span>&nbsp; {{ houseDetails.rent }}</span>
               </div>
             </div>
           </div>

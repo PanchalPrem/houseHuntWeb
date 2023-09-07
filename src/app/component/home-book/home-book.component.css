@@ -1,6 +1,6 @@
 
 .par-elem {
-  background-image: url("/assets/images/bg/9.jpg");
+  /* background-image: url("/assets/images/bg/9.jpg"); */
   transform: translateZ(0px) translateY(-9.42857%);
 }
 .fa, .fab, .fal, .far, .fas {
@@ -42,4 +42,13 @@ button.btnaplly i{
 }
 .booking-modal-close.color-bg {
   text-align: center;
+}
+span.fa.fa-inr {
+  font-size: 22px;
+}
+.list-single-hero-title h2:before{
+  display: none !important;
+}
+.list-single-header-contacts, ul {
+  padding-left: 0rem;
 }

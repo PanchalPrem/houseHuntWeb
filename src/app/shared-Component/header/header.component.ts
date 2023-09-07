@@ -31,24 +31,31 @@ export class HeaderComponent implements OnInit {
   signInForm: any = FormGroup;
   signUPForm: any = FormGroup;
   isLogin: any;
+  checkLogin: any = true;
   isToggled: boolean = false;
   menubar: boolean = false;
   openPro: boolean = false;
   loader: boolean = true;
   isload: boolean = false;
+  emailPattern = "^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.com";
 
+  get f() { return this.signInForm.controls; };
+  get g() { return this.signUPForm.controls; }
+
+  // get f(){return this.signInForm.controler}
   ngOnInit(): void {
     this.isLogin = localStorage.getItem('logId');
+    this.checkLogin=this.isLogin ==null?true:false
     this.signInForm = this.fb.group({
-      email: [''],
-      password: [''],
+      email: ['',[Validators.required,Validators.pattern(this.emailPattern)]],
+      password: ['',[Validators.required]],
     });
     this.signUPForm = this.fb.group({
-      name: [''],
-      email: [''],
-      mobileno: [''],
-      password: [''],
-      gender: [''],
+      name: ['',[Validators.required]],
+      email: ['',[Validators.required,Validators.pattern(this.emailPattern)]],
+      mobileno: ['',[Validators.required,Validators.pattern("^[0-9]*$")]],
+      password: ['',[Validators.required]],
+      gender: ['',[Validators.required]],
     });
   }
   openWindowCustomClass(content: any) {
@@ -97,6 +104,7 @@ export class HeaderComponent implements OnInit {
       this.service.signIn(this.signInForm.value).subscribe((res) => {
         if (res.ErrorCode == 200) {
           this.isload = false;
+          this.checkLogin=false
           this.toster.success('Login successfully');
           localStorage.setItem('loginKey', res.authkey);
           localStorage.setItem('logId', res.data[0]._id);
@@ -115,28 +123,31 @@ export class HeaderComponent implements OnInit {
   }
 
   signUp() {
-    if (!this.signUPForm.invalid) {
-      $('.isregister').addClass('animate-flicker');
-      this.service.signUp(this.signUPForm.value).subscribe((res) => {
-        if (res.ErrorCode == 200) {
-          $('.isregister').removeClass('animate-flicker');
+    console.log(this.signUPForm.value);
 
-          this.signUPForm.reset();
-          $('.close-reg').trigger('click');
-          this.toster.success('registration successfully');
-        } else {
-          this.toster.warning(res.ErrorMessage);
-          $('.isregister').removeClass('animate-flicker');
-        }
-      });
-    } else {
-      this.toster.warning('Please fill all feilds');
-    }
+    // if (!this.signUPForm.invalid) {
+    //   $('.isregister').addClass('animate-flicker');
+    //   this.service.signUp(this.signUPForm.value).subscribe((res) => {
+    //     if (res.ErrorCode == 200) {
+    //       $('.isregister').removeClass('animate-flicker');
+
+    //       this.signUPForm.reset();
+    //       $('.close-reg').trigger('click');
+    //       this.toster.success('registration successfully');
+    //     } else {
+    //       this.toster.warning(res.ErrorMessage);
+    //       $('.isregister').removeClass('animate-flicker');
+    //     }
+    //   });
+    // } else {
+    //   this.toster.warning('Please fill all feilds');
+    // }
   }
 
   logOut() {
     $('.proFile').removeClass('hu-menu-vis');
     this.isLogin = null;
+    this.checkLogin=true
     localStorage.clear();
     this.router.navigateByUrl('/');
   }

@@ -87,3 +87,32 @@ color: #f8bb11;;
    -o-animation: flickerAnimation 1s infinite;
     animation: flickerAnimation 1s infinite;
 }
+
+.text-danger {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-danger-rgb),var(--bs-text-opacity))!important;
+  text-align: left;
+  padding: 0px 0px -3px;
+}
+.custom-form input {
+  margin-bottom: 9px !important;
+}
+.mssg {
+  font-size: 13px;
+  margin: 3px;
+}
+
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--bs-modal-color);
+  pointer-events: auto;
+  background-color: none;
+  background-clip: padding-box;
+  border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+  border-radius: var(--bs-modal-border-radius);
+  outline: 0;
+}

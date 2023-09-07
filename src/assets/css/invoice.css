@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&amp;subset=latin-ext,vietnamese');	
+/* @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&amp;subset=latin-ext,vietnamese');	 */
 	body{
 			font-family: 'Nunito', sans-serif;
 		text-align:center;
@@ -11,7 +11,7 @@
 		padding-bottom:0px;
 		color:#000;
 	}
-@page { size: auto;  margin: 0mm; }	
+@page { size: auto;  margin: 0mm; }
 	body h3{
 		font-weight:300;
 		margin-top:10px;
@@ -94,11 +94,11 @@
 		}
 	.invoice-box table tr.top table td{
 		padding-bottom:20px;
-	}	
+	}
 	.invoice-box table tr.information table td{
 		margin-top:20px;
 		padding-bottom:20px;
-	}	
+	}
 		.invoice-box table tr.information table td{
 			width:100%;
 			display:block;

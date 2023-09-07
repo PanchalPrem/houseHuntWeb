@@ -1,19 +1,17 @@
-
-
 <header class="main-header">
-
   <div class="header-top fl-wrap">
     <div class="container">
       <div class="logo-holder">
         <a routerLink="/"><img src="assets/images/logo (2).png" alt="" /></a>
       </div>
       <div
+        *ngIf="checkLogin"
         class="show-reg-form modal-open"
         (click)="openWindowCustomClass(content1)"
       >
         <i class="fa fa-sign-in"></i>Sign In
       </div>
-          </div>
+    </div>
   </div>
   <div class="header-inner fl-wrap">
     <div class="container">
@@ -44,16 +42,20 @@
               class="menu-panel-root"
               style="width: 300px"
             >
-              <li >
-                <a [routerLink]="['/']"
-                routerLinkActive="act-link"
-                [routerLinkActiveOptions]="{ exact: true }" class=" nav">Home</a>
+              <li>
+                <a
+                  [routerLink]="['/']"
+                  routerLinkActive="act-link"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav"
+                  >Home</a
+                >
               </li>
               <li>
-                <a  routerLink="/about" class=" nav">About</a>
+                <a routerLink="/about" class="nav">About</a>
               </li>
               <li>
-                <a  routerLink="/contect" class=" nav">Contact As </a>
+                <a routerLink="/contect" class="nav">Contact As </a>
               </li>
             </ul>
           </div>
@@ -81,11 +83,9 @@
       </div>
     </div>
   </div>
-
 </header>
 
 <ng-template #content1 let-modal>
-
   <div class="reg-overlay"></div>
   <div class="main-register-holder">
     <div class="main-register fl-wrap">
@@ -111,24 +111,48 @@
               Sign In <span>House<strong>Hunt</strong></span>
             </h3>
             <div class="custom-form">
-
               <form [formGroup]="signInForm" (ngSubmit)="signin()">
-                <label>Email Address <span class="text-danger"> *</span> </label>
+                <label
+                  >Email Address <span class="text-danger"> *</span>
+                </label>
                 <input
                   type="text"
                   placeholder="Enter Email"
                   formControlName="email"
+                  required
                 />
+                <div
+                  *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"
+                  class="text-danger valdi"
+                >
+                  <div class="mssg" *ngIf="f.email.errors?.required">
+                    Email is required
+                  </div>
+                  <div class="mssg" *ngIf="f.email.errors?.pattern">
+                    Please enter proper email
+                  </div>
+                </div>
                 <label>Password <span class="text-danger">*</span> </label>
                 <input
                   type="password"
                   placeholder="Enter Password"
                   formControlName="password"
+                  required
                 />
+                <div
+                  *ngIf="
+                    f.password.invalid &&
+                    (f.password.dirty || f.password.touched)
+                  "
+                  class="text-danger valdi"
+                >
+                  <div class="mssg" *ngIf="f.password.errors?.required">
+                    Password is required
+                  </div>
+                </div>
                 <button type="submit" class="log-submit-btn color-bg">
-                  <span class="animate-flicker"*ngIf="isload">Login...</span>
+                  <span class="animate-flicker" *ngIf="isload">Login...</span>
                   <span *ngIf="!isload">Log In</span>
-
                 </button>
                 <div class="clearfix"></div>
               </form>
@@ -153,13 +177,45 @@
                     formControlName="name"
                     autocomplete="new-name"
                   />
-                  <label>Email Address <span class="text-danger">*</span></label>
+                  <div
+                    *ngIf="g.name.invalid && (g.name.dirty || g.name.touched)"
+                    class="text-danger valdi"
+                  >
+                    <div class="mssg" *ngIf="g.name.errors?.required">
+                      Name is required
+                    </div>
+                  </div>
+                  <label
+                    >Email Address <span class="text-danger">*</span></label
+                  >
                   <input
                     type="text"
                     placeholder="Enter Email"
                     formControlName="email"
                     autocomplete="new-email"
                   />
+                  <div
+                    *ngIf="
+                      g.email.invalid && (g.email.dirty || g.email.touched)
+                    "
+                    class="text-danger valdi"
+                  >
+                    <div class="mssg" *ngIf="g.email.errors?.required">
+                      Email is required
+                    </div>
+                    <div class="mssg" *ngIf="g.email.errors?.pattern">
+                      Please enter proper email
+                    </div>
+                  </div>
+                  <label>Mobile <span class="text-danger"> *</span></label>
+                  <input
+                  type="text"
+                  placeholder="Enter Mobile"
+                  formControlName="mobileno"
+                  autocomplete="new-mobileno"
+                />
+
+
                   <label>Gander <span class="text-danger"> *</span></label>
                   <select class="form-control" formControlName="gender">
                     <option disabled selected value>Select Gender</option>
@@ -167,6 +223,16 @@
                     <option value="Female">Female</option>
                     <option value="other">other</option>
                   </select>
+                  <div
+                    *ngIf="
+                      g.gender.invalid && (g.gender.dirty || g.gender.touched)
+                    "
+                    class="text-danger valdi"
+                  >
+                    <div class="mssg" *ngIf="g.gender.errors?.required">
+                      Gender is required
+                    </div>
+                  </div>
                   <label>Password <span class="text-danger">*</span></label>
                   <input
                     type="password"
@@ -174,6 +240,16 @@
                     autocomplete="new-password"
                     formControlName="password"
                   />
+                  <div
+                  *ngIf="
+                    g.password.invalid && (g.password.dirty || g.password.touched)
+                  "
+                  class="text-danger valdi"
+                >
+                  <div class="mssg" *ngIf="g.password.errors?.required">
+                    Password is required
+                  </div>
+                </div>
                   <button type="submit" class="log-submit-btn color-bg">
                     <span class="isregister">Register</span>
                   </button>
