@@ -1,4 +1,7 @@
-.subfooter-nav ul li{
+.subfooter-nav ul li {
   cursor: pointer;
 }
 
+.trem-text:hover {
+  color: #fedc61 !important;
+}

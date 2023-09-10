@@ -1,8 +1,17 @@
 <div id="wrapper">
   <div class="content">
     <app-header></app-header>
+
     <section id="sec1" class="grey-b lue-bg middle-padding">
       <div class="container">
+        <div class="breadcrumbs-fs fl-wrap">
+          <div class="container">
+            <div class="breadcrumbs fl-wrap">
+              <a routerLink="/">Home</a>
+              <span>Contact</span>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-4">
             <div class="list-single-main-item fl-wrap">
@@ -13,10 +22,12 @@
                 <img src="assets/images/all/8.jpg" alt="" class="respimg" />
               </div> -->
               <p>
-                Welcome to house huntt, your trusted partner in the world of real estate. With a passion for properties and a commitment to excellence, we have been helping clients turn their real estate dreams into reality.
+                Welcome to house huntt, your trusted partner in the world of real estate. With a passion for properties
+                and a commitment to excellence, we have been helping clients turn their real estate dreams into reality.
               </p>
               <p>
-                Thank you for considering House Huntt as your real estate partner. Whether you're looking to buy, sell, or invest, we look forward to helping you make your real estate dreams a reality.
+                Thank you for considering House Huntt as your real estate partner. Whether you're looking to buy, sell,
+                or invest, we look forward to helping you make your real estate dreams a reality.
               </p>
               <div class="list-single-main-item-title fl-wrap mar-top">
                 <h3>Working Hours</h3>
@@ -34,39 +45,21 @@
               </div>
               <div id="contact-form">
                 <div id="message"></div>
-                <form
-                  class="custom-form"
-                  [formGroup]="inquiryForm"
-                  (ngSubmit)="submit()"
-                >
+                <form class="custom-form" [formGroup]="inquiryForm" (ngSubmit)="submit()">
                   <!-- <fieldset> -->
                   <label><i class="fal fa-user"></i></label>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    formControlName="name"
-                  />
+                  <input type="text" placeholder="Your Name" formControlName="name" />
                   <div class="clearfix"></div>
-                  <div
-                    *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)"
-                    class="text-danger valdi"
-                  >
+                  <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)" class="text-danger valdi">
                     <div class="mssg" *ngIf="f.name.errors?.required">
                       Name is required
                     </div>
                   </div>
                   <label><i class="fal fa-envelope"></i> </label>
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    formControlName="email"
-                  />
-                  <div
-                    *ngIf="
+                  <input type="email" placeholder="Email Address" formControlName="email" />
+                  <div *ngIf="
                       f.email.invalid && (f.email.dirty || f.email.touched)
-                    "
-                    class="text-danger valdi"
-                  >
+                    " class="text-danger valdi">
                     <div class="mssg" *ngIf="f.email.errors?.required">
                       Email is required
                     </div>
@@ -75,48 +68,27 @@
                     </div>
                   </div>
                   <label><i class="fal fa-mobile"></i> </label>
-                  <input
-                    type="text"
-                    placeholder="Enter Mobile"
-                    formControlName="number"
-                  />
-                  <div
-                    *ngIf="
+                  <input type="text" placeholder="Enter Mobile" formControlName="number" />
+                  <div *ngIf="
                       f.number.invalid && (f.number.dirty || f.number.touched)
-                    "
-                    class="text-danger valdi"
-                  >
+                    " class="text-danger valdi">
                     <div class="mssg" *ngIf="f.number.errors?.required">
                       Mobile is required
                     </div>
                   </div>
-                  <textarea
-                    name="comments"
-                    id="comments"
-                    cols="40"
-                    rows="3"
-                    placeholder="Your Message:"
-                    formControlName="message"
-                  ></textarea>
-                  <div
-                    *ngIf="
+                  <textarea name="comments" id="comments" cols="40" rows="3" placeholder="Your Message:"
+                    formControlName="message"></textarea>
+                  <div *ngIf="
                       f.message.invalid &&
                       (f.message.dirty || f.message.touched)
-                    "
-                    class="text-danger valdi"
-                  >
+                    " class="text-danger valdi">
                     <div class="mssg" *ngIf="f.message.errors?.required">
                       Message is required
                     </div>
                   </div>
                   <!-- </fieldset> -->
-                  <button
-                    type="submit"
-                    class="btn float-btn color2-bg"
-                    style="margin-top: 15px"
-                    id="submit"
-                    [disabled]="!inquiryForm.valid"
-                  >
+                  <button type="submit" class="btn float-btn color2-bg" style="margin-top: 15px" id="submit"
+                    [disabled]="!inquiryForm.valid">
                     Send Message<i class="fal fa-angle-right"></i>
                   </button>
                 </form>

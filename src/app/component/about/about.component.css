@@ -1,6 +1,7 @@
 .section-title {
   text-align: center;
 }
+
 section {
   float: left;
   width: 100%;
@@ -8,4 +9,13 @@ section {
   padding: 120px 0 !important;
   background: #fff;
   z-index: 1;
+}
+
+.wave-bg.wave-bg2 {
+  background: #18458b;
+  opacity: 0.9;
+}
+
+.big-pad-pr-item {
+  box-shadow: 5px 6px #fedc62;
 }

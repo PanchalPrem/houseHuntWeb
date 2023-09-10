@@ -37,7 +37,6 @@ export class HomeBookComponent implements OnInit {
       if (res.ErrorCode == 200) {
         this.houseDetails = res.data[0];
         this.imageUrl = res.filePath;
-
       } else {
         alert(res.ErrorMessage);
       }
@@ -45,6 +44,7 @@ export class HomeBookComponent implements OnInit {
   }
   openWindowCustomClass(content: any) {
     let isLogin = localStorage.getItem('logId');
+
     let Details: any = localStorage.getItem('userData');
     let userDetails = JSON.parse(Details);
 
@@ -74,11 +74,10 @@ export class HomeBookComponent implements OnInit {
 
             if (res.ErrorCode == 200) {
               this.toster.success(res.ErrorMessage);
-              this.router.navigateByUrl('/my-Booking')
+              this.router.navigateByUrl('/my-Booking');
             } else {
               this.toster.warning(res.ErrorMessage);
             }
-
           });
         }
       });

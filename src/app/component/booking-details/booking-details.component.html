@@ -16,31 +16,33 @@
                                         <span class="fa fa-user"></span>
                                     </div>
                                     <div class="dashboard-message-text">
-                                        <h4>Andy Smith - <span>27 December 2018</span></h4>
+                                        <h4>{{viewBookigData.userDetails.name|uppercase}} - <span style="color: green;">{{viewBookigData.createdAt|date}}</span></h4>
                                         <div class="booking-details fl-wrap">
                                             <span class="booking-title">House Name :</span> :
-                                            <span class="booking-text"><a >Premium Plaza Hotel</a></span>
+                                            <span class="booking-text"><a >{{viewBookigData.houseDetails.houseName}}</a></span>
                                         </div>
                                        <div class="booking-details fl-wrap">
                                             <span class="booking-title">Status :</span>
-                                            <span class="booking-text">Pending..</span>
+                                            <span class="booking-text status0" *ngIf="viewBookigData.status==0">Pending..</span>
+                                              <span class="booking-text status1" *ngIf="viewBookigData.status==1">Booked</span>
+                                              <span class="booking-text status2" *ngIf="viewBookigData.status==2">Reject</span>
                                         </div>
-                                         <div class="booking-details fl-wrap">
+                                         <!-- <div class="booking-details fl-wrap">
                                             <span class="booking-title">Booking Date :</span>
                                             <span class="booking-text">02.03.2018  - 10.03.2018</span>
-                                        </div>
+                                        </div> -->
                                         <div class="booking-details fl-wrap">
                                             <span class="booking-title">Mail :</span>
-                                            <span class="booking-text"><a target="_top">yormail@domain.com</a></span>
+                                            <span class="booking-text"><a target="_top">{{viewBookigData.userDetails.email}}</a></span>
                                         </div>
                                         <div class="booking-details fl-wrap">
                                             <span class="booking-title">Phone :</span>
-                                            <span class="booking-text"><a target="_top">+496170961709</a></span>
+                                            <span class="booking-text"><a target="_top">{{viewBookigData.userDetails.mobileno}}</a></span>
                                         </div>
-                                        <div class="booking-details fl-wrap">
+                                        <!-- <div class="booking-details fl-wrap">
                                             <span class="booking-title">Payment State :</span>
                                             <span class="booking-text"> <strong class="done-paid">Paid  </strong>  using Paypal</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

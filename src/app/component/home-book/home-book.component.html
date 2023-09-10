@@ -18,7 +18,7 @@
               <div class="col-md-7">
 
                 <h2>
-                  <span>{{ houseDetails.categoryDetails[0].name }}</span>
+                  <span>{{ houseDetails.houseName }}</span>
                 </h2>
                 <div class="list-single-header-contacts fl-wrap">
                   <ul class="box_1">
@@ -99,16 +99,22 @@
                   </div>
                   <div class="listing-features fl-wrap">
                     <ul>
-                      <li><i class="fal fa-check"></i> Elevator in building</li>
-                      <li><i class="fal fa-times"></i> Free Wi Fi</li>
-                      <li><i class="fal fa-parking"></i> Free Parking</li>
-                      <li><i class="fal fa-snowflake"></i> Air Conditioned</li>
-                      <li><i class="fal fa-plane"></i>Airport Shuttle</li>
-                      <li><i class="fal fa-paw"></i> Pet Friendly</li>
-                      <li><i class="fal fa-utensils"></i> Restaurant Inside</li>
+                      <!-- <li><i class="fal fa-check"></i> Available For :{{houseDetails.availableFor}}</li>
+                      <li><i class="fal fa-times"></i> Electricity Charges:{{houseDetails.electricityWaterCharges}}</li>
+                      <li><i class="fal fa-parking"></i> Furnishing:{{houseDetails.furnishing}}</li>
+                      <li><i class="fal fa-snowflake"></i> Parking:{{houseDetails.parking}}</li>
+                      <li><i class="fal fa-plane"></i>PowerBackup:{{houseDetails.rentAgreementDuration}}</li>
+                      <li><i class="fal fa-paw"></i> Rent Agreement:{{houseDetails.rentAgreementDuration}}</li> -->
+                      <li><i ></i> <b>Available For</b> : {{ houseDetails.availableFor}}</li>
+                      <li><i ></i> <b>Electricity Charges</b> : {{houseDetails.electricityWaterCharges}}</li>
+                      <li><i ></i> <b>Furnishing</b> : {{ houseDetails.furnishing}}</li>
+                      <li><i ></i> <b>Parking</b> : {{ houseDetails.parking}}</li>
+                      <li><i ></i><b>PowerBackup</b> : {{houseDetails.rentAgreementDuration}}</li>
+                      <li><i ></i> <b>Rent Agreement</b> : {{houseDetails.rentAgreementDuration}}</li>
+                      <!-- <li><i class="fal fa-utensils"></i> Restaurant Inside</li>
                       <li>
                         <i class="fal fa-wheelchair"></i> Wheelchair Friendly
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                   <span class="fw-separator"></span>

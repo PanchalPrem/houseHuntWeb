@@ -3,15 +3,10 @@
   <div class="content">
     <section class="hero-section" data-scrollax-parent="true" id="sec1">
       <div class="hero-parallax">
-        <div
-          class="bg"
-          data-bg="assets/images/bg/22.jpg"
-          data-scrollax="properties: { translateY: '200px' }"
-          style="
+        <div class="bg" data-bg="assets/images/bg/22.jpg" data-scrollax="properties: { translateY: '200px' }" style="
             background-image: url('assets/images/bg/22.jpg');
             transform: translateZ(0px) translateY(-92.437px);
-          "
-        ></div>
+          "></div>
         <div class="overlay op7"></div>
       </div>
       <div class="hero-section-wrap fl-wrap">
@@ -23,20 +18,12 @@
           </div>
           <div class="main-search-input-wrap">
             <div class="main-search-input fl-wrap">
-              <div
-                class="main-search-input-item location"
-                id="autocomplete-container"
-              >
+              <div class="main-search-input-item location" id="autocomplete-container" style="width: 100%;">
                 <span class="inpt_dec"><i class="fal fa-map-marker"></i></span>
-                <input
-                  type="text"
-                  placeholder="Flat , City..."
-                  class="autocomplete-input pac-target-input"
-                  id="autocompleteid2"
-                  autocomplete="off"
-                />
+                <input type="text" placeholder="Flat , City..." class="autocomplete-input pac-target-input"
+                  id="autocompleteid2" autocomplete="off" />
               </div>
-              <div
+              <!-- <div
                 class="main-search-input-item main-date-parent main-search-input-item_small"
               >
                 <span class="inpt_dec"
@@ -115,7 +102,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <button class="main-search-button color2-bg">
                 Search <i class="fal fa-search"></i>
               </button>
@@ -125,79 +112,59 @@
       </div>
       <div class="header-sec-link">
         <div class="container">
-          <a class="custom-scroll-link color-bg"
-            ><i class="fal fa-angle-double-down"></i
-          ></a>
+          <a class="custom-scroll-link color-bg"><i class="fal fa-angle-double-down"></i></a>
         </div>
       </div>
     </section>
     <section class="grey-blue-bg">
       <div class="container">
         <div class="section-title">
-          <h2>Recently Added Flats</h2>
+          <h2>List</h2>
           <span class="section-separator"></span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in
-            pulvinar neque. Nulla finibus lobortis pulvinar.
-          </p>
+
         </div>
       </div>
       <div class="list-carousel fl-wrap card-listing">
-        <div
-          class="listing-carousel fl-wrap slick-initialized slick-slider slick-dotted"
-        >
-        <div class="slick-list draggable row">
-          <div class="slick-track">
+        <div class="listing-carousel fl-wrap slick-initialized slick-slider slick-dotted">
+          <div class="slick-list draggable row">
+            <div class="slick-track">
 
-            <div class="loader" *ngIf="loader">
-              <div class="loader_ajax_small"></div>
-            </div>
+              <div class="loader" *ngIf="loader">
+                <div class="loader_ajax_small"></div>
+              </div>
 
-              <div
-                class="slick-slide"
-                id=""
-                aria-hidden="true"
-                style="width: 335px"
-                *ngFor="let item of itemsToShow; let i = index"
-              >
+              <div class="slick-slide" id="" aria-hidden="true" style="width: 335px"
+                *ngFor="let item of itemsToShow; let i = index">
                 <div>
                   <div class="slick-slide-item">
                     <div class="listing-item">
                       <article class="geodir-category-listing fl-wrap">
                         <div class="geodir-category-img">
-                         <a
-                            ><img
-                              [src]="
+                          <a><img [src]="
                                 item.houseImage.length == '0'
                                   ? 'assets/images/gal/4.jpg'
                                   : 'https://househuntt.com/apiHouse/assets/house/' +
                                     item.houseImage[0].imageName
-                              "
-                              alt=""
-                          /></a>
-                          <div class="sale-window big-sale">Off 50%</div>
-                          <div class="geodir-category-opt">
+                              " alt="" /></a>
+                          <!-- <div class="sale-window big-sale">Off 50%</div> -->
+                          <!-- <div class="geodir-category-opt">
                             <div class="rate-class-name">
                               <div class="score">
                                 <strong>Good</strong>12 Reviews
                               </div>
                               <span>5</span>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
-                        <div
-                          class="geodir-category-content fl-wrap title-sin_item"
-                        >
+                        <div class="geodir-category-content fl-wrap title-sin_item">
                           <div class="geodir-category-content-title fl-wrap">
                             <div class="geodir-category-content-title-item">
                               <h3 class="title-sin_map">
-                                <a>Flat's </a>
+                                <a>{{ item.houseName }} </a>
                               </h3>
                               <div class="geodir-category-location fl-wrap">
-                                <a class="map-item"
-                                  ><i class="fas fa-map-marker-alt"></i>
-                                  {{ item.address }}</a
-                                >
+                                <a class="map-item"><i class="fas fa-map-marker-alt"></i>
+                                  {{ item.address }}</a>
                               </div>
                             </div>
                           </div>
@@ -207,10 +174,7 @@
 
                           <div class="geodir-category-footer fl-wrap">
                             <div class="geodir-opt-link">
-                              <button
-                                class="geodir-category-price"
-                                [routerLink]="['/book/' + item._id]"
-                              >
+                              <button class="geodir-category-price" [routerLink]="['/book/' + item._id]">
                                 Book Now
                               </button>
                             </div>
@@ -234,17 +198,20 @@
         <ng-template #content let-modal>
           <div class="modal-header">
             <h4 class="modal-title" id="modal-basic-title">Please enter pin code</h4>
-            <button  style="color: rgb(255, 0, 0); text-decoration: none; display: none;"type="button" class="close-reg color-bg" aria-label="Close" (click)="modal.dismiss('Cross click')"><a class="fa fa-times" ></a></button>
+            <button style="color: rgb(255, 0, 0); text-decoration: none; display: none;" type="button"
+              class="close-reg color-bg" aria-label="Close" (click)="modal.dismiss('Cross click')"><a
+                class="fa fa-times"></a></button>
           </div>
           <div class="modal-body">
-              <div class="mb-3">
-                <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Enter Pin Code" [(ngModel)]="pinCode">
-                </div>
+            <div class="mb-3">
+              <div class="input-group">
+                <input type="number" class="form-control" placeholder="Enter Pin Code" [(ngModel)]="pinCode">
               </div>
+            </div>
           </div>
         </ng-template>
-        <button style="display: none;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+        <button style="display: none;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo
+          modal</button>
       </div>
     </section>
   </div>
