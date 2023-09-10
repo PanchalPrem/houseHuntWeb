@@ -123,12 +123,18 @@ export class HeaderComponent implements OnInit {
   }
 
   signUp() {
-    console.log(this.signUPForm.value);
 
     if (!this.signUPForm.invalid) {
       $('.isregister').addClass('animate-flicker');
       this.service.signUp(this.signUPForm.value).subscribe((res) => {
+
         if (res.ErrorCode == 200) {
+          console.log("res",res);
+          this.checkLogin=false
+          localStorage.setItem('loginKey', res.authkey);
+          localStorage.setItem('logId', res.data[0]._id);
+          localStorage.setItem('userData', JSON.stringify(res.data[0]));
+          this.isLogin = res.data[0]._id;
           $('.isregister').removeClass('animate-flicker');
 
           this.signUPForm.reset();

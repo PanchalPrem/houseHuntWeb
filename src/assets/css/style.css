@@ -3834,6 +3834,7 @@ input[type="number"] {
   font-weight: 500;
   z-index: -1;
   opacity: 0.5;
+  display: none;
 }
 .geodir-category-content-title-item {
   float: left;
