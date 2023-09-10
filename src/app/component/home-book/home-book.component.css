@@ -1,7 +1,9 @@
 
 .par-elem {
-  /* background-image: url("/assets/images/bg/9.jpg"); */
+  background-image: url("/assets/images/pattern.png");
   transform: translateZ(0px) translateY(-9.42857%);
+  /* background-color: #F8BB11; */
+  opacity: 0.1;
 }
 .fa, .fab, .fal, .far, .fas {
     line-height: 2 !important;

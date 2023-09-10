@@ -116,3 +116,14 @@ color: #f8bb11;;
   border-radius: var(--bs-modal-border-radius);
   outline: 0;
 }
+span.fa.fa-user{
+  border: 2px solid #ffffffbf;
+  font-size: 30px;
+  border-radius: 71%;
+  height: 40px;
+  width: 40px;
+  padding: 3px 7px;
+
+  color: #ffffff;
+  margin-top: -2px;
+}

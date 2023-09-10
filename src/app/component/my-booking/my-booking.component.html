@@ -10,22 +10,25 @@
                               <div class="dashboard-header fl-wrap">
                                   <h3>My Bookings</h3>
                               </div>
-                              <div class="dashboard-list">
+                              <div class="dashboard-list" *ngFor="let item of [1,2,3]">
                                   <div class="dashboard-message">
+                                    <span class="new-dashboard-item" (click)="viewBookingDetails()">View Details</span>
+
                                       <div class="dashboard-message-avatar">
-                                          <img src="assets/images/avatar/3.jpg" alt="">
+                                          <!-- <img src="assets/images/avatar/3.jpg" alt=""> -->
+                                          <span class="fa fa-user"></span>
                                       </div>
                                       <div class="dashboard-message-text">
-                                          <h4>Andy Smith - <span>27 December 2018</span></h4>
+                                          <h4>Andy Smith - <span style="color: green;">27 December 2018</span></h4>
                                           <div class="booking-details fl-wrap">
-                                              <span class="booking-title">Listing Item :</span> :
+                                              <span class="booking-title">House Name :</span> :
                                               <span class="booking-text"><a >Premium Plaza Hotel</a></span>
                                           </div>
-                                          <div class="booking-details fl-wrap">
-                                              <span class="booking-title">Persons :</span>
-                                              <span class="booking-text">4 Peoples</span>
+                                         <div class="booking-details fl-wrap">
+                                              <span class="booking-title">Status :</span>
+                                              <span class="booking-text status">Pending..</span>
                                           </div>
-                                          <div class="booking-details fl-wrap">
+                                          <!--  <div class="booking-details fl-wrap">
                                               <span class="booking-title">Booking Date :</span>
                                               <span class="booking-text">02.03.2018  - 10.03.2018</span>
                                           </div>
@@ -40,8 +43,9 @@
                                           <div class="booking-details fl-wrap">
                                               <span class="booking-title">Payment State :</span>
                                               <span class="booking-text"> <strong class="done-paid">Paid  </strong>  using Paypal</span>
-                                          </div>
+                                          </div> -->
 
+                                          <!-- <button class="viewBtn">View Details</button> -->
                                       </div>
                                   </div>
                               </div>

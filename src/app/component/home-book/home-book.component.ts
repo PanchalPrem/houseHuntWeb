@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/api-service.service';
 import {
   NgbActiveModal,
@@ -26,8 +26,7 @@ export class HomeBookComponent implements OnInit {
     private service: ApiServiceService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private fb: FormBuilder,private toster:ToastrService
-  ) {}
+    private fb: FormBuilder,private toster:ToastrService,private router:Router  ) {}
 
   ngOnInit(): void {
     this.routeid = this.route.snapshot.params['id'];
@@ -70,6 +69,7 @@ export class HomeBookComponent implements OnInit {
 
             if (res.ErrorCode==200) {
               this.toster.success(res.ErrorMessage);
+              this.router.navigateByUrl('/my-Booking')
             } else {
               this.toster.warning(res.ErrorMessage);
             }

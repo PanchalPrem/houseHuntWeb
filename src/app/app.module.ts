@@ -15,6 +15,9 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyBookingComponent } from './component/my-booking/my-booking.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FootermenuComponent } from './shared-Component/footermenu/footermenu.component';
+import { PrivacyPolicyComponent } from './component/privacy-policy/privacy-policy.component';
+import { BookingDetailsComponent } from './component/booking-details/booking-details.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { FootermenuComponent } from './shared-Component/footermenu/footermenu.co
     ContectComponent,
     HomeBookComponent,
     MyBookingComponent,
-    FootermenuComponent
+    FootermenuComponent,
+    PrivacyPolicyComponent,
+    BookingDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

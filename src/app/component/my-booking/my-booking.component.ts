@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { ApiServiceService } from 'src/api-service.service';
 
 @Component({
@@ -9,14 +9,19 @@ import { ApiServiceService } from 'src/api-service.service';
 })
 export class MyBookingComponent implements OnInit {
 
-  constructor(private service:ApiServiceService) { }
+  constructor(private service:ApiServiceService,private router:Router) { }
 
   ngOnInit(): void {
 
   this.service.myBooking().subscribe((res:any)=>{
+console.log(res);
 
 
     })
+  }
+  viewBookingDetails(){
+// alert()
+this.router.navigateByUrl('/booking-details')
   }
 
 }

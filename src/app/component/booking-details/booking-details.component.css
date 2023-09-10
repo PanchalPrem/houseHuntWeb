@@ -5,6 +5,7 @@
   z-index: 5;
   padding-top: 70px;
 }
+
 span.fa.fa-user {
   border: 1px solid #0000005e;
   font-size: 40px;
@@ -13,14 +14,4 @@ span.fa.fa-user {
   width: 50px;
   padding: 2px 9px;
   color: #0000008c;
-}
-span.booking-text.status {
-  color: orange;
-}
-a.log-out-btn {
-  background: #fedd60 !important;
-  color: black;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
 }

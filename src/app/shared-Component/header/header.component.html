@@ -21,10 +21,13 @@
           *ngIf="isLogin != null"
           (click)="openProfile()"
         >
-          <span><img src="assets/images/avatar/user2.png" alt="" /></span>
+          <!-- <span><img src="assets/images/avatar/user2.png" alt="" /></span> -->
+          <span class="fa fa-user"></span>
           My account
         </div>
         <ul class="proFile">
+          <li [routerLink]="['/profile']"><a>Profile</a></li>
+
           <li [routerLink]="['/my-Booking']"><a>My Booking</a></li>
           <li (click)="logOut()"><a>Log Out</a></li>
         </ul>
