@@ -26,7 +26,7 @@ export class HomeBookComponent implements OnInit {
     private service: ApiServiceService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private fb: FormBuilder,private toster:ToastrService,private router:Router  ) {}
+    private fb: FormBuilder, private toster: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.routeid = this.route.snapshot.params['id'];
@@ -54,7 +54,12 @@ export class HomeBookComponent implements OnInit {
         email: userDetails.email,
         username: userDetails.name,
         houseId: this.houseDetails._id,
+        brokerId: this.houseDetails.brokerId,
+        userId: isLogin,
+
       };
+      console.log('data', data);
+
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be book house",
@@ -67,7 +72,7 @@ export class HomeBookComponent implements OnInit {
         if (result.isConfirmed) {
           this.service.houseBook(data).subscribe((res: any) => {
 
-            if (res.ErrorCode==200) {
+            if (res.ErrorCode == 200) {
               this.toster.success(res.ErrorMessage);
               this.router.navigateByUrl('/my-Booking')
             } else {
@@ -79,7 +84,7 @@ export class HomeBookComponent implements OnInit {
       });
     } else {
       $('.show-reg-form').trigger('click');
-    // this.modalService.open(content, {  size: 'lg' });
+      // this.modalService.open(content, {  size: 'lg' });
     }
 
     // let options: NgbModalOptions = {
