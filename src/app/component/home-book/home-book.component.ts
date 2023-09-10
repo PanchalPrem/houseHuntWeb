@@ -26,7 +26,10 @@ export class HomeBookComponent implements OnInit {
     private service: ApiServiceService,
     config: NgbModalConfig,
     private modalService: NgbModal,
-    private fb: FormBuilder,private toster:ToastrService,private router:Router  ) {}
+    private fb: FormBuilder,
+    private toster: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.routeid = this.route.snapshot.params['id'];
@@ -37,7 +40,6 @@ export class HomeBookComponent implements OnInit {
       if (res.ErrorCode == 200) {
         this.houseDetails = res.data[0];
         this.imageUrl = res.filePath;
-
       } else {
         alert(res.ErrorMessage);
       }
@@ -45,6 +47,7 @@ export class HomeBookComponent implements OnInit {
   }
   openWindowCustomClass(content: any) {
     let isLogin = localStorage.getItem('logId');
+
     let Details: any = localStorage.getItem('userData');
     let userDetails = JSON.parse(Details);
 
@@ -54,6 +57,8 @@ export class HomeBookComponent implements OnInit {
         email: userDetails.email,
         username: userDetails.name,
         houseId: this.houseDetails._id,
+        userId:isLogin,
+        brokerId: this.houseDetails.brokerId,
       };
       Swal.fire({
         title: 'Are you sure?',
@@ -66,20 +71,18 @@ export class HomeBookComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           this.service.houseBook(data).subscribe((res: any) => {
-
-            if (res.ErrorCode==200) {
+            if (res.ErrorCode == 200) {
               this.toster.success(res.ErrorMessage);
-              this.router.navigateByUrl('/my-Booking')
+              this.router.navigateByUrl('/my-Booking');
             } else {
               this.toster.warning(res.ErrorMessage);
             }
-
           });
         }
       });
     } else {
       $('.show-reg-form').trigger('click');
-    // this.modalService.open(content, {  size: 'lg' });
+      // this.modalService.open(content, {  size: 'lg' });
     }
 
     // let options: NgbModalOptions = {

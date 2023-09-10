@@ -10,23 +10,27 @@
                               <div class="dashboard-header fl-wrap">
                                   <h3>My Bookings</h3>
                               </div>
-                              <div class="dashboard-list" *ngFor="let item of [1,2,3]">
+                              <div class="dashboard-list" *ngFor="let item of myBookig">
                                   <div class="dashboard-message">
-                                    <span class="new-dashboard-item" (click)="viewBookingDetails()">View Details</span>
-
+                                    <span class="new-dashboard-item" (click)="viewBookingDetails(item)">View Details</span>
                                       <div class="dashboard-message-avatar">
                                           <!-- <img src="assets/images/avatar/3.jpg" alt=""> -->
                                           <span class="fa fa-user"></span>
                                       </div>
                                       <div class="dashboard-message-text">
-                                          <h4>Andy Smith - <span style="color: green;">27 December 2018</span></h4>
+                                          <h4>{{item.userDetails.name|uppercase}} - <span style="color: green;">{{item.createdAt|date}}</span></h4>
                                           <div class="booking-details fl-wrap">
                                               <span class="booking-title">House Name :</span> :
-                                              <span class="booking-text"><a >Premium Plaza Hotel</a></span>
+                                              <!-- <span class="booking-text"><a >Premium Plaza Hotel</a></span> -->
+                                              <span class="booking-text"><a >{{item.houseDetails.houseName}}</a></span>
+
                                           </div>
                                          <div class="booking-details fl-wrap">
-                                              <span class="booking-title">Status :</span>
-                                              <span class="booking-text status">Pending..</span>
+                                              <span class="booking-title">Status :</span>                                              <span class="booking-text status0" *ngIf="item.status==0">Pending..</span>
+                                              <span class="booking-text status1" *ngIf="item.status==1">Booked</span>
+                                              <span class="booking-text status2" *ngIf="item.status==2">Reject</span>
+
+
                                           </div>
                                           <!--  <div class="booking-details fl-wrap">
                                               <span class="booking-title">Booking Date :</span>

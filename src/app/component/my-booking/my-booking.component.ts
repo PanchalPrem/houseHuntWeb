@@ -5,23 +5,23 @@ import { ApiServiceService } from 'src/api-service.service';
 @Component({
   selector: 'app-my-booking',
   templateUrl: './my-booking.component.html',
-  styleUrls: ['./my-booking.component.css']
+  styleUrls: ['./my-booking.component.css'],
 })
 export class MyBookingComponent implements OnInit {
-
-  constructor(private service:ApiServiceService,private router:Router) { }
-
+  constructor(private service: ApiServiceService, private router: Router) {}
+myBookig:any=[]
   ngOnInit(): void {
-
-  this.service.myBooking().subscribe((res:any)=>{
-console.log(res);
-
-
-    })
+    this.service.myBooking().subscribe((res: any) => {
+      if (res.ErrorCode==200) {
+        this.myBookig=res.data
+        localStorage.setItem('totalBookig',this.myBookig.length)
+      }
+      console.log(res);
+    });
   }
-  viewBookingDetails(){
-// alert()
-this.router.navigateByUrl('/booking-details')
+  viewBookingDetails(value:any) {
+    let data=JSON.stringify(value)
+    localStorage.setItem("bookigData",data)
+    this.router.navigateByUrl('/booking-details');
   }
-
 }
