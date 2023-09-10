@@ -125,23 +125,23 @@ export class HeaderComponent implements OnInit {
   signUp() {
     console.log(this.signUPForm.value);
 
-    // if (!this.signUPForm.invalid) {
-    //   $('.isregister').addClass('animate-flicker');
-    //   this.service.signUp(this.signUPForm.value).subscribe((res) => {
-    //     if (res.ErrorCode == 200) {
-    //       $('.isregister').removeClass('animate-flicker');
+    if (!this.signUPForm.invalid) {
+      $('.isregister').addClass('animate-flicker');
+      this.service.signUp(this.signUPForm.value).subscribe((res) => {
+        if (res.ErrorCode == 200) {
+          $('.isregister').removeClass('animate-flicker');
 
-    //       this.signUPForm.reset();
-    //       $('.close-reg').trigger('click');
-    //       this.toster.success('registration successfully');
-    //     } else {
-    //       this.toster.warning(res.ErrorMessage);
-    //       $('.isregister').removeClass('animate-flicker');
-    //     }
-    //   });
-    // } else {
-    //   this.toster.warning('Please fill all feilds');
-    // }
+          this.signUPForm.reset();
+          $('.close-reg').trigger('click');
+          this.toster.success('registration successfully');
+        } else {
+          this.toster.warning(res.ErrorMessage);
+          $('.isregister').removeClass('animate-flicker');
+        }
+      });
+    } else {
+      this.toster.warning('Please fill all feilds');
+    }
   }
 
   logOut() {
