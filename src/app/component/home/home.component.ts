@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiServiceService } from 'src/api-service.service';
 import {
   NgbActiveModal,
@@ -7,34 +7,38 @@ import {
   NgbModalConfig,
   NgbModalOptions,
 } from '@ng-bootstrap/ng-bootstrap';
- declare var $:any
+declare var $: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [NgbModalConfig, NgbModal],
-
 })
 export class HomeComponent implements OnInit {
   housedata: any = [];
-  imageurl:any
-  pinCode:string='';
+  imageurl: any;
+  pinCode: string = '';
   itemsPerPage: number = 10;
   currentPage: number = 1;
-  loader:boolean=false;
-  constructor(private service: ApiServiceService,  private modalService: NgbModal,private toster:ToastrService) {}
+  loader: boolean = false;
+  searching: any = [];
+  constructor(
+    private service: ApiServiceService,
+    private modalService: NgbModal,
+    private toster: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    let checkPin=localStorage.getItem('pinCode')
+    let checkPin = localStorage.getItem('pinCode');
     // if (checkPin==(null)) {
     //   $('.btn-outline-primary').trigger('click')
     // }else{
     //   this.getHouse(checkPin);
     // }
-    this.getHouse()
+    this.getHouse();
   }
-  open(data:any){
-    this.modalService.open(data,{backdrop:'static'})
+  open(data: any) {
+    this.modalService.open(data, { backdrop: 'static' });
   }
   // submit(){
   //   $('.close-reg').trigger('click')
@@ -42,21 +46,19 @@ export class HomeComponent implements OnInit {
   //  this.getHouse(this.pinCode);
   // }
 
-//  async getHouse(data1:any) {
- async getHouse() {
-  this.loader=true;
+  //  async getHouse(data1:any) {
+  async getHouse() {
+    this.loader = true;
     let data = { text: '' };
-   await this.service.gtehouse(data).subscribe((res: any) => {
-    if (res.ErrorCode==200) {
-      this.housedata = res.data;
-      this.imageurl=res.filePath
-      this.loader=false
-    }else{
-      this.toster.warning('Something want wrong')
-      this.loader=false
-    }
-
-
+    await this.service.gtehouse(data).subscribe((res: any) => {
+      if (res.ErrorCode == 200) {
+        this.housedata = res.data;
+        this.imageurl = res.filePath;
+        this.loader = false;
+      } else {
+        this.toster.warning('Something want wrong');
+        this.loader = false;
+      }
     });
   }
 
@@ -79,5 +81,34 @@ export class HomeComponent implements OnInit {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
+  }
+  search(data: any) {
+    let data1 = { text: data.value };
+      if (data.value == '') {
+        this.searching = [];
+        let data1 = { text: '' };
+        this.service.gtehouse(data1).subscribe((res: any) => {
+          this.housedata = res.data;
+        });
+      }else{
+        this.service.gtehouse(data1).subscribe((res: any) => {
+          this.searching = res.data;
+        });
+      }
+
+  }
+  searchval(data: any) {
+    $('#autocompleteid2').val(data);
+    this.searchHouse()
+    this.searching = [];
+  }
+  searchHouse() {
+    let data = $('#autocompleteid2').val();
+    let data1 = { text: data };
+    console.log(data1);
+    this.service.gtehouse(data1).subscribe((res: any) => {
+      this.searching = [];
+      this.housedata = res.data;
+    });
   }
 }

@@ -16,7 +16,8 @@ export class ProfileComponent implements OnInit {
     this.userdetails = localStorage.getItem('userData');
     this.userdetails = JSON.parse(this.userdetails);
     this.totalBooking=  localStorage.getItem('totalBookig')
-    console.log(this.userdetails);
+console.log(this.totalBooking);
+
   }
   logout() {
     this.header.logOut();

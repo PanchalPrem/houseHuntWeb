@@ -20,93 +20,18 @@
             <div class="main-search-input fl-wrap">
               <div class="main-search-input-item location" id="autocomplete-container" style="width: 100%;">
                 <span class="inpt_dec"><i class="fal fa-map-marker"></i></span>
-                <input type="text" placeholder="Flat , City..." class="autocomplete-input pac-target-input"
+                <input type="text" (keyup)="search($event.target)" placeholder="Flat , City..." class="autocomplete-input pac-target-input"
                   id="autocompleteid2" autocomplete="off" />
               </div>
-              <!-- <div
-                class="main-search-input-item main-date-parent main-search-input-item_small"
-              >
-                <span class="inpt_dec"
-                  ><i class="fal fa-calendar-check"></i
-                ></span>
-                <input
-                  type="text"
-                  placeholder="When"
-                  name="main-input-search"
-                  value=""
-                />
-                <div class="daterangepicker ltr show-calendar opensright">
-                  <div class="ranges"></div>
-                  <div class="drp-calendar left">
-                    <div class="calendar-table"></div>
-                    <div class="calendar-time" style="display: none"></div>
-                  </div>
-                  <div class="drp-calendar right">
-                    <div class="calendar-table"></div>
-                    <div class="calendar-time" style="display: none"></div>
-                  </div>
-                  <div class="drp-buttons">
-                    <span class="drp-selected"></span
-                    ><button
-                      class="cancelBtn btn btn-sm btn-default"
-                      type="button"
-                    >
-                      Clear</button
-                    ><button
-                      class="applyBtn btn btn-sm btn-primary"
-                      disabled="disabled"
-                      type="button"
-                    >
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="main-search-input-item">
-                <div class="qty-dropdown fl-wrap">
-                  <div class="qty-dropdown-header fl-wrap">
-                    <i class="fal fa-users"></i> Persons
-                  </div>
-                  <div class="qty-dropdown-content fl-wrap">
-                    <div class="quantity-item">
-                      <label><i class="fas fa-male"></i> Adults</label>
-                      <div class="quantity">
-                        <input
-                          type="number"
-                          min="1"
-                          max="3"
-                          step="1"
-                          value="1"
-                        />
-                        <div class="quantity-nav">
-                          <div class="quantity-button quantity-up">+</div>
-                          <div class="quantity-button quantity-down">-</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="quantity-item">
-                      <label><i class="fas fa-child"></i> Children</label>
-                      <div class="quantity">
-                        <input
-                          type="number"
-                          min="0"
-                          max="3"
-                          step="1"
-                          value="0"
-                        />
-                        <div class="quantity-nav">
-                          <div class="quantity-button quantity-up">+</div>
-                          <div class="quantity-button quantity-down">-</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <button class="main-search-button color2-bg">
+              <button class="main-search-button color2-bg" (click)="searchHouse()">
                 Search <i class="fal fa-search"></i>
               </button>
             </div>
+          </div>
+          <div class="searching" *ngIf="searching.length!=0">
+            <ul  class="list-group">
+              <li class="list-group-item" (click)="searchval(item.address)" *ngFor="let item of searching">{{item.address}}</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -144,17 +69,9 @@
                                 item.houseImage.length == '0'
                                   ? 'assets/images/gal/4.jpg'
                                   : 'https://househuntt.com/apiHouse/assets/house/' +
-                                    item.houseImage[0].imageName
+                                    item?.houseImage[0].imageName
                               " alt="" /></a>
-                          <!-- <div class="sale-window big-sale">Off 50%</div> -->
-                          <!-- <div class="geodir-category-opt">
-                            <div class="rate-class-name">
-                              <div class="score">
-                                <strong>Good</strong>12 Reviews
-                              </div>
-                              <span>5</span>
-                            </div>
-                          </div> -->
+
                         </div>
                         <div class="geodir-category-content fl-wrap title-sin_item">
                           <div class="geodir-category-content-title fl-wrap">
@@ -164,12 +81,12 @@
                               </h3>
                               <div class="geodir-category-location fl-wrap">
                                 <a class="map-item"><i class="fas fa-map-marker-alt"></i>
-                                  {{ item.address }}</a>
+                                  {{ item.address?.length>40?item.address.slice(0,35)+"..":item.address}}</a>
                               </div>
                             </div>
                           </div>
-                          <p>
-                            {{ item.configuration }}
+                          <p style="height: 110px;">
+                            {{item.configuration?.length>95?item.configuration.slice(0,80)+"..":item.configuration}}
                           </p>
 
                           <div class="geodir-category-footer fl-wrap">

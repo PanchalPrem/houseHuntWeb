@@ -5,7 +5,7 @@ margin: 0px 11px;
 
 }
 .log-submit-btn{
-  float: right
+  float: right;
 }
 .custom-form .form-control {
   float: left;
@@ -34,7 +34,7 @@ button#dropdownBasic1 {
   line-height: 25px;
 }
 button#dropdownBasic1:hover{
-color: #f8bb11;;
+color: #f8bb11;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: var(--bs-dropdown-link-active-color);
@@ -116,27 +116,30 @@ color: #f8bb11;;
   border-radius: var(--bs-modal-border-radius);
   outline: 0;
 }
-span.fa.fa-user{
+span.fa.fa-user {
   border: 2px solid #ffffffbf;
-  font-size: 30px;
+  font-size: 25px;
   border-radius: 71%;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   padding: 3px 7px;
-  color: #ffffff;
+  color: #fff;
   margin-top: -2px;
+  margin-left: 9px;
+}
+.active{
+  color: #f8bb11;
 }
 
-/* @media only screen and (max-width: 412px) {
-  span.fa.fa-user[_ngcontent-tii-c106] {
-    border: 2px solid #ffffffbf;
-    font-size: 22px !important;
-    border-radius: 71%;
-    height: 30px !important;
-    width: 30px !important;
-    padding: 3px 5px !important;
-    color: #fff;
-    margin-top: -1px !important;
-    margin-left: 9px !important;
+li.current a {
+  background: #174183 !important;
+  color: white !important;
 }
-} */
+.tabs-menu a{
+  cursor: pointer !important;
+
+}
+.proFile a{
+  cursor: pointer !important;
+
+}
