@@ -23,16 +23,17 @@
                 <input type="text" (keyup)="search($event.target)" placeholder="Flat , City..." class="autocomplete-input pac-target-input"
                   id="autocompleteid2" autocomplete="off" />
               </div>
+              <div class="searching" *ngIf="searching.length!=0">
+                <ul  class="list-group">
+                  <li class="list-group-item" (click)="searchval(item.address)" *ngFor="let item of searching">{{item.address}}</li>
+                </ul>
+              </div>
               <button class="main-search-button color2-bg" (click)="searchHouse()">
                 Search <i class="fal fa-search"></i>
               </button>
             </div>
           </div>
-          <div class="searching" *ngIf="searching.length!=0">
-            <ul  class="list-group">
-              <li class="list-group-item" (click)="searchval(item.address)" *ngFor="let item of searching">{{item.address}}</li>
-            </ul>
-          </div>
+          <!-- ///// -->
         </div>
       </div>
       <div class="header-sec-link">
@@ -54,7 +55,7 @@
           <div class="slick-list draggable row">
             <div class="slick-track">
 
-              <div class="loader" *ngIf="loader">
+              <div class="loader " *ngIf="loader">
                 <div class="loader_ajax_small"></div>
               </div>
 

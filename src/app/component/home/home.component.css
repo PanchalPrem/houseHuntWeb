@@ -49,23 +49,16 @@ button.geodir-category-price {
   background: none;
 }
 
-/* .searching  .list-group {
-  background: white;
-  padding: 0px 0px 0px;
-  margin-top: 122px;
-  margin-left: 198px;
-  width: 58%;
+.searching .list-group {
+  width: 100% !important;
   text-align: left;
-} */
-
+  margin-top: 7%;
+  /* z-index: 999999 !important; */
+  max-height: 0px;
+  /* overflow-y: auto; */
+}
   li.list-group-item {
     cursor: pointer;
 }
-/* .searching .list-group {
-  background: white;
-  padding: 0px !important;
-  margin-top: 0px !important;
-  margin-left: 0 !important;
-  width: 99% !important;
-  text-align: left !important;
-} */
+
+
